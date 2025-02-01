@@ -2,6 +2,30 @@
 
 [![Screenshot](./preview.png)](https://hugoblox.com/templates/)
 
+## Publication Automation
+
+This website automatically updates publications from Google Scholar. To set this up:
+
+1. Get your Google Scholar ID:
+   - Go to your Google Scholar profile
+   - The ID is in the URL: `scholar.google.com/citations?user=YOUR_ID_HERE`
+
+2. Add your Google Scholar ID to GitHub Secrets:
+   - Go to your repository Settings > Secrets and variables > Actions
+   - Add a new secret named `GOOGLE_SCHOLAR_ID` with your Scholar ID as the value
+
+3. The automation is already set up to:
+   - Run every Sunday at midnight to check for new publications
+   - Create properly formatted publication entries in your website
+   - Commit and push any changes automatically
+
+4. You can also trigger the update manually:
+   - Go to the Actions tab in your repository
+   - Select "Update Publications" workflow
+   - Click "Run workflow"
+
+The script uses the `scholarly` Python package to fetch publication data from Google Scholar and formats it according to the Hugo Academic theme requirements.
+
 The Hugo **Academic Resumé Template** empowers you to easily create your job-winning online resumé, showcase your academic publications, and create online courses or knowledge bases to grow your audience.
 
 [![Get Started](https://img.shields.io/badge/-Get%20started-ff4655?style=for-the-badge)](https://hugoblox.com/templates/)
