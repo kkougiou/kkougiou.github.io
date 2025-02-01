@@ -20,26 +20,33 @@ def parse_year(year_str):
         return str(datetime.now().year)
     
     try:
-        # Try to convert to integer
-        year = int(year_str)
-        # Validate year is reasonable (between 1900 and current year)
-        current_year = datetime.now().year
-        if year < 1900 or year > current_year:
-            return str(current_year)
-        return str(year)
+        # Extract first 4-digit number that looks like a year
+        year_match = re.search(r'(19|20)\d{2}', str(year_str))
+        if year_match:
+            year = int(year_match.group(0))
+            # Validate year is reasonable
+            current_year = datetime.now().year
+            if 1900 <= year <= current_year:
+                return str(year)
+        return str(datetime.now().year)
     except (ValueError, TypeError):
-        # If conversion fails, return current year
         return str(datetime.now().year)
 
 def clean_doi(doi):
     """Clean DOI by removing common prefixes."""
     if not doi:
         return ''
+    
     # Remove common prefixes
     prefixes = ['https://doi.org/', 'http://doi.org/', 'doi.org/']
     for prefix in prefixes:
-        if doi.startswith(prefix):
-            return doi[len(prefix):]
+        while doi.startswith(prefix):
+            doi = doi[len(prefix):]
+    
+    # If it still starts with http, it might be a direct URL
+    if doi.startswith(('http://', 'https://')):
+        return doi
+    
     return doi
 
 def get_publications(scholar_id):
