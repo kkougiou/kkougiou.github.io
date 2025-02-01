@@ -26,7 +26,7 @@ authors:
 - Thomas Raus
 - Panayotis Dimopoulos
 date: '2021'
-doi: https://www.mdpi.com/2071-1050/13/24/13778
+doi: ''
 featured: false
 publication: Sustainability
 publication_types:

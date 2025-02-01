@@ -7,7 +7,7 @@ abstract: We are pleased to announce the winners of the Diversity 2022 Best Pape
 authors:
 - Diversity Editorial Office
 date: '2022'
-doi: https://www.mdpi.com/1424-2818/14/4/281
+doi: ''
 featured: false
 publication: ''
 publication_types:

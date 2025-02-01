@@ -15,7 +15,7 @@ authors:
 - Konstantinos Kougioumoutzis
 - John M Halley
 date: '2019'
-doi: https://link.springer.com/article/10.1186/s40709-019-0110-1
+doi: ''
 featured: false
 publication: Journal of Biological Research-Thessaloniki
 publication_types:

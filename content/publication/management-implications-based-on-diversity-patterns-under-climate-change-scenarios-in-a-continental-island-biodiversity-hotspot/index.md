@@ -27,7 +27,7 @@ authors:
 - Arne Strid
 - Panayotis Dimopoulos
 date: '2020'
-doi: https://www.biorxiv.org/content/10.1101/2020.03.01.971143.abstract
+doi: ''
 featured: false
 publication: bioRxiv
 publication_types:

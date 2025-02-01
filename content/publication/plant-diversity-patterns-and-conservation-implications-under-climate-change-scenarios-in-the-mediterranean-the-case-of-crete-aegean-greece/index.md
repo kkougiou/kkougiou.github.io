@@ -27,7 +27,7 @@ authors:
 - Arne Strid
 - Panayotis Dimopoulos
 date: '2020'
-doi: https://www.mdpi.com/1424-2818/12/7/270
+doi: ''
 featured: false
 publication: Diversity
 publication_types:

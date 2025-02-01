@@ -6,7 +6,7 @@ authors:
 - Anna Kagiampaki
 - Konstantinos Kougioumoutzis
 date: '2018'
-doi: https://www.academia.edu/download/77259509/mylonas_plants.pdf
+doi: ''
 featured: false
 publication: ''
 publication_types:

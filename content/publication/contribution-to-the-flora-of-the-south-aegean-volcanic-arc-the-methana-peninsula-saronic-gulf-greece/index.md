@@ -17,7 +17,7 @@ authors:
 - Th Georgiadis
 - O Georgiou
 date: '2012'
-doi: https://www.cambridge.org/core/journals/edinburgh-journal-of-botany/article/contribution-to-the-flora-of-the-south-aegean-volcanic-arc-the-methana-peninsula-saronic-gulf-greece/207FCC02DDA37345047CD7EBB86B3541
+doi: ''
 featured: false
 publication: Edinburgh Journal of Botany
 publication_types:

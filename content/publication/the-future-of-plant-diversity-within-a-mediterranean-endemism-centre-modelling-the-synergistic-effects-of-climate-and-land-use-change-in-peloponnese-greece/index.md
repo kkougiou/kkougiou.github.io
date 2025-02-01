@@ -19,7 +19,7 @@ authors:
 - Arne Strid
 - Maria Panitsa
 date: '2024'
-doi: https://www.sciencedirect.com/science/article/pii/S0048969724047715
+doi: ''
 featured: false
 publication: Science of The Total Environment
 publication_types:

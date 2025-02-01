@@ -31,7 +31,7 @@ authors:
 - Ursula Foskolou
 - Michael Papadopoulos
 date: '2022'
-doi: https://www.mdpi.com/2071-1050/14/2/800
+doi: ''
 featured: false
 publication: Sustainability
 publication_types:

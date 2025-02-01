@@ -20,7 +20,7 @@ authors:
 - Konstantinos Kougioumoutzis
 - Theodora Petanidou
 date: '2023'
-doi: https://www.mdpi.com/2073-445X/12/12/2109
+doi: ''
 featured: false
 publication: Land
 publication_types:

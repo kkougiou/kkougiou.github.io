@@ -5,7 +5,7 @@ authors:
 - A Kagiampaki
 - K Kougioumoutzis
 date: '2018'
-doi: https://scholar.google.com/scholar?cluster=11937793354508955830&hl=en&oi=scholarr
+doi: ''
 featured: false
 publication: ''
 publication_types:

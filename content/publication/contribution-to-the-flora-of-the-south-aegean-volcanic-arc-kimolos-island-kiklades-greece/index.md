@@ -17,7 +17,7 @@ authors:
 - O Georgiou
 - Th Georgiadis
 date: '2014'
-doi: https://www.cambridge.org/core/journals/edinburgh-journal-of-botany/article/contribution-to-the-flora-of-the-south-aegean-volcanic-arc-kimolos-island-kiklades-greece/2E8CEDCC10CDFC397EF7B5CE6F5941E6
+doi: ''
 featured: false
 publication: Edinburgh Journal of Botany
 publication_types:

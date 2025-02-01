@@ -19,7 +19,7 @@ authors:
 - Evangelia V Avramidou
 - Eleni Tani
 date: '2020'
-doi: https://academic.oup.com/aobpla/article-abstract/12/2/plaa007/5754204
+doi: ''
 featured: false
 publication: AoB PLANTS
 publication_types:

@@ -30,7 +30,7 @@ authors:
 - Gregoris Iatrou
 - Maria Panitsa
 date: '2022'
-doi: https://www.mdpi.com/2223-7747/11/24/3548
+doi: ''
 featured: false
 publication: Plants
 publication_types:

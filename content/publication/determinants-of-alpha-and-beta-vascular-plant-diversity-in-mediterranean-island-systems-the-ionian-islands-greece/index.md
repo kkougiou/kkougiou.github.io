@@ -18,7 +18,7 @@ authors:
 - Maria Panitsa
 - Panayiotis Trigas
 date: '2019'
-doi: https://nsojournals.onlinelibrary.wiley.com/doi/abs/10.1111/njb.02156
+doi: ''
 featured: false
 publication: Nordic Journal of Botany
 publication_types:

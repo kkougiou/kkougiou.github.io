@@ -17,7 +17,7 @@ authors:
 - Arne Strid
 - Panayotis Dimopoulos
 date: '2025'
-doi: https://www.authorea.com/doi/full/10.22541/au.173709953.33599094
+doi: ''
 featured: false
 publication: ''
 publication_types:

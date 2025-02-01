@@ -19,7 +19,7 @@ authors:
 - Luc Willemse
 - Vassiliki Kati
 date: '2025'
-doi: https://resjournals.onlinelibrary.wiley.com/doi/abs/10.1111/icad.12784
+doi: ''
 featured: false
 publication: Insect Conservation and Diversity
 publication_types:

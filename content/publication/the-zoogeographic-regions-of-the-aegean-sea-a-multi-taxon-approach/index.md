@@ -22,7 +22,7 @@ authors:
 - Katerina Vardinoyannis
 - Spyros Sfenthourakis
 date: '2018'
-doi: https://www.academia.edu/download/80588431/mylonas_zoa.pdf
+doi: ''
 featured: false
 publication: ''
 publication_types:

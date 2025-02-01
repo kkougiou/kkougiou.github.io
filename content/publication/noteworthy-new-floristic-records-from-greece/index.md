@@ -20,7 +20,7 @@ authors:
 - Konstantinos Katopodis
 - Theophanis Constantinidis
 date: '2021'
-doi: https://doiserbia.nb.rs/Article.aspx?id=1821-21582102321T
+doi: ''
 featured: false
 publication: Botanica Serbica
 publication_types:

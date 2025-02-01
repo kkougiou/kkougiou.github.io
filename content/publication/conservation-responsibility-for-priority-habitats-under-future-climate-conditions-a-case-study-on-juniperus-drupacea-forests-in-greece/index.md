@@ -29,7 +29,7 @@ authors:
 - Arne Strid
 - Panayotis Dimopoulos
 date: '2023'
-doi: https://www.mdpi.com/2073-445X/12/11/1976
+doi: ''
 featured: false
 publication: Land
 publication_types:

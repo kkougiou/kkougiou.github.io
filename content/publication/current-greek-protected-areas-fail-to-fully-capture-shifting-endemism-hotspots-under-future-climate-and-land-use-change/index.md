@@ -26,8 +26,8 @@ authors:
 - Panayotis Dimopoulos
 - Arne Strid
 - Maria Panitsa
-date: '2025'
-doi: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5014808
+date: '2024'
+doi: ''
 featured: false
 publication: Available at SSRN 5014808
 publication_types:

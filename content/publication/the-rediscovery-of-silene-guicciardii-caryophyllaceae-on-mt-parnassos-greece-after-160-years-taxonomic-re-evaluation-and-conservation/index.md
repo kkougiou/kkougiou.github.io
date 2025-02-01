@@ -15,7 +15,7 @@ authors:
 - Ioannis Kokkoris
 - Konstantinos Kougioumoutzis
 date: '2017'
-doi: https://www.researchgate.net/profile/Panayiotis-Trigas-3/publication/321756139_The_rediscovery_of_Silene_guicciardii_Caryophyllaceae_on_Mt_Parnassos_Greece_after_160_years_taxonomic_re-evaluation_and_conservation/links/5bbaf0f392851c7fde33b3b4/The-rediscovery-of-Silene-guicciardii-Caryophyllaceae-on-Mt-Parnassos-Greece-after-160-years-taxonomic-re-evaluation-and-conservation.pdf?origin=journalDetail&_tp=eyJwYWdlIjoiam91cm5hbERldGFpbCJ9
+doi: ''
 featured: false
 publication: Phytotaxa
 publication_types:

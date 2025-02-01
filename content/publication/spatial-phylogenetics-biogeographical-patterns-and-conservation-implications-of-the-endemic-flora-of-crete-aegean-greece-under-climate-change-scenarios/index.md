@@ -27,7 +27,7 @@ authors:
 - Arne Strid
 - Panayotis Dimopoulos
 date: '2020'
-doi: https://www.mdpi.com/2079-7737/9/8/199
+doi: ''
 featured: false
 publication: Biology
 publication_types:

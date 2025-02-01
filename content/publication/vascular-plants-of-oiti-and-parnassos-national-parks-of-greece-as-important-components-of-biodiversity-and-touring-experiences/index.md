@@ -22,7 +22,7 @@ authors:
 - Spyridoula Stamouli
 - Konstantinia Tsagkari
 date: '2020'
-doi: https://kkougiou.com/publication/solomou-2020-vascular/solomou-2020-vascular.pdf
+doi: ''
 featured: false
 publication: ''
 publication_types:

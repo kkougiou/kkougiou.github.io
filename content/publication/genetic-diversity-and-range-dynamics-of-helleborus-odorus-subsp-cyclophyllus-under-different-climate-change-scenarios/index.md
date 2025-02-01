@@ -27,7 +27,7 @@ authors:
 - Panayiotis Trigas
 - Vasileios Papasotiropoulos
 date: '2020'
-doi: https://www.mdpi.com/1999-4907/11/6/620
+doi: ''
 featured: false
 publication: Forests
 publication_types:

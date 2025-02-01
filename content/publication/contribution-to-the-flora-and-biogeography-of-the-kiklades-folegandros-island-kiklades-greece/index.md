@@ -16,7 +16,7 @@ authors:
 - O Georgiou
 - Th Georgiadis
 date: '2015'
-doi: https://www.cambridge.org/core/journals/edinburgh-journal-of-botany/article/contribution-to-the-flora-and-biogeography-of-the-kiklades-folegandros-island-kiklades-greece/DC1162728D28D40B8EF3DBE66B2A0E31
+doi: ''
 featured: false
 publication: Edinburgh Journal of Botany
 publication_types:

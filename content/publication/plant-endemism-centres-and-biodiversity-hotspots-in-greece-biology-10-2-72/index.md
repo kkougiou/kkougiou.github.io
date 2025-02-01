@@ -8,7 +8,7 @@ authors:
 - A Strid
 - P Dimopoulos
 date: '2021'
-doi: https://scholar.google.com/scholar?cluster=16755297005027872527&hl=en&oi=scholarr
+doi: ''
 featured: false
 publication: ''
 publication_types:

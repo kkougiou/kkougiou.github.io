@@ -22,7 +22,7 @@ authors:
 - Ioannis Constantinou
 - Maria Panitsa
 date: '2024'
-doi: https://www.mdpi.com/2223-7747/13/8/1109
+doi: ''
 featured: false
 publication: Plants
 publication_types:

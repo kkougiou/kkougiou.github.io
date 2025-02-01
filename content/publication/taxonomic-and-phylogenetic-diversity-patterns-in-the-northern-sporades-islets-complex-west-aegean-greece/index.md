@@ -22,7 +22,7 @@ authors:
 - Arne Strid
 - Panayotis Dimopoulos
 date: '2020'
-doi: https://link.springer.com/article/10.1007/s00606-020-01660-0
+doi: ''
 featured: false
 publication: Plant Systematics and Evolution
 publication_types:

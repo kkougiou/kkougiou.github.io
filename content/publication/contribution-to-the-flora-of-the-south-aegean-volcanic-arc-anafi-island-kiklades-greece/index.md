@@ -17,7 +17,7 @@ authors:
 - Ourania Georgiou
 - Theodoros Georgiadis
 date: '2012'
-doi: https://bioone.org/journals/Willdenowia/volume-42/issue-1/wi.42.42115/Contribution-to-the-flora-of-the-South-Aegean-Volcanic-Arc/10.3372/wi.42.42115.short
+doi: ''
 featured: false
 publication: Willdenowia
 publication_types:

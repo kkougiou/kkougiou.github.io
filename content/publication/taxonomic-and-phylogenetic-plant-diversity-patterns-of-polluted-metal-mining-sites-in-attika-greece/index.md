@@ -13,8 +13,8 @@ authors:
 - Dimitra Megadouka
 - Konstantinos Serelis
 - Jaco Vangronsveld
-date: '2025'
-doi: https://www.researchgate.net/profile/Eleni-Papazoglou-2/publication/335404363_Taxonomic_and_phylogenetic_plant_diversity_patterns_of_polluted_metal_mining_sites_in_Attika_Greece/links/5d642e99299bf1f70b0eab8d/Taxonomic-and-phylogenetic-plant-diversity-patterns-of-polluted-metal-mining-sites-in-Attika-Greece
+date: '2009'
+doi: ''
 featured: false
 publication: ''
 publication_types:

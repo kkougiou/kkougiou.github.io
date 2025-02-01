@@ -25,7 +25,7 @@ authors:
 - Arne Strid
 - Panayotis Dimopoulos
 date: '2021'
-doi: https://www.mdpi.com/2223-7747/10/5/992
+doi: ''
 featured: false
 publication: Plants
 publication_types:

@@ -24,7 +24,7 @@ authors:
 - Kathleen MC Tjørve
 - Even Tjørve
 date: '2017'
-doi: https://www.sciencedirect.com/science/article/pii/S0031018217301190
+doi: ''
 featured: false
 publication: Palaeogeography, Palaeoclimatology, Palaeoecology
 publication_types:

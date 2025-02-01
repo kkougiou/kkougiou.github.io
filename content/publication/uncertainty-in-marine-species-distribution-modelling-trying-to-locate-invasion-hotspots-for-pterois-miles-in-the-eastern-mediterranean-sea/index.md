@@ -24,7 +24,7 @@ authors:
 - Demetris Kletou
 - Stefanos Kalogirou
 date: '2022'
-doi: https://www.mdpi.com/2077-1312/10/6/729
+doi: ''
 featured: false
 publication: Journal of Marine Science and Engineering
 publication_types:

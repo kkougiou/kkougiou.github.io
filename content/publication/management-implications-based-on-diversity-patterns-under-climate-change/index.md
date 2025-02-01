@@ -27,7 +27,7 @@ authors:
 - Arne Strid
 - Panayotis Dimopoulos
 date: '2013'
-doi: https://www.academia.edu/download/98918759/2020.03.01.971143.full.pdf
+doi: ''
 featured: false
 publication: management
 publication_types:

@@ -17,7 +17,7 @@ authors:
 - Kostas Kougioumoutzis
 - Maria Chatzaki
 date: '2013'
-doi: https://link.springer.com/article/10.1007/s10841-013-9553-0
+doi: ''
 featured: false
 publication: Journal of insect conservation
 publication_types:

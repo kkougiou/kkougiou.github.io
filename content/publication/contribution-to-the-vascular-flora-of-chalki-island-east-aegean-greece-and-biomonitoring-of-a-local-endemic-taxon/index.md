@@ -16,7 +16,7 @@ authors:
 - Konstantinos Kougioumoutzis
 - Gregoris Iatrou
 date: '2016'
-doi: https://bioone.org/journals/willdenowia/volume-46/issue-1/wi.46.46114/Contribution-to-the-vascular-flora-of-Chalki-Island-East-Aegean/10.3372/wi.46.46114.short
+doi: ''
 featured: false
 publication: Willdenowia
 publication_types:

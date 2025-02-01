@@ -16,7 +16,7 @@ authors:
 - Konstantinos Kougioumoutzis
 - Theodora Petanidou
 date: '2021'
-doi: https://www.sciencedirect.com/science/article/pii/S1470160X21010001
+doi: ''
 featured: false
 publication: Ecological Indicators
 publication_types:

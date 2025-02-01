@@ -23,7 +23,7 @@ authors:
 - Panayiotis Trigas
 - Aristeidis Parmakelis
 date: '2021'
-doi: https://www.mdpi.com/1424-2818/13/4/152
+doi: ''
 featured: false
 publication: Diversity
 publication_types:

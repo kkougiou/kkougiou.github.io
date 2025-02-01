@@ -17,7 +17,7 @@ authors:
 - Theodoros Georgiadis
 - Argyro Tiniakou
 date: '2014'
-doi: https://link.springer.com/article/10.1186/2241-5793-21-9
+doi: ''
 featured: false
 publication: Journal of Biological Research-Thessaloniki
 publication_types:

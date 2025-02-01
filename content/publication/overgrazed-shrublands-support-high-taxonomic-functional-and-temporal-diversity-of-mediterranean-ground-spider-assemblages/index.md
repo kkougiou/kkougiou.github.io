@@ -16,7 +16,7 @@ authors:
 - Konstantinos Kougioumoutzis
 - Maria Chatzaki
 date: '2019'
-doi: https://www.sciencedirect.com/science/article/pii/S1470160X19302705
+doi: ''
 featured: false
 publication: Ecological Indicators
 publication_types:

@@ -17,7 +17,7 @@ authors:
 - Aikaterini Ermidou
 - Eleftherios Kalpoutzakis
 date: '2018'
-doi: https://bioone.org/journals/Willdenowia/volume-48/issue-1/wi.48.48110/Multivariate-morphometric-analysis-of-Petrorhagia-subsect-Saxifragae-Caryophyllaceae-in-Greece/10.3372/wi.48.48110.short
+doi: ''
 featured: false
 publication: Willdenowia
 publication_types:
