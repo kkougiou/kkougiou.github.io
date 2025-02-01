@@ -34,20 +34,29 @@ def parse_year(year_str):
         if 1900 <= year <= current_year:
             return str(year)
             
-        # If year is invalid, return current year
-        return str(current_year)
+        # If year is invalid, return 2024 as default
+        return "2024"
     except (ValueError, TypeError):
-        # If conversion fails, return current year
-        return str(current_year)
+        # If conversion fails, return 2024 as default
+        return "2024"
 
 def clean_doi(doi):
     """Clean DOI by removing common prefixes."""
     if not doi:
         return ''
     
-    # If it's a ResearchGate or similar URL, return it as is
-    if any(domain in doi.lower() for domain in ['researchgate.net', 'academia.edu', 'authorea.com']):
-        return doi
+    # If it's a ResearchGate URL, extract the DOI if possible
+    if 'researchgate.net' in doi.lower():
+        # Try to find a DOI pattern in the URL
+        doi_match = re.search(r'10\.\d{4,}/[-._;()/:\w]+', doi)
+        if doi_match:
+            return doi_match.group(0)
+        # If no DOI found, return empty string
+        return ''
+    
+    # If it's another repository URL, return empty string
+    if any(domain in doi.lower() for domain in ['academia.edu', 'authorea.com']):
+        return ''
     
     # Remove common prefixes
     prefixes = ['https://doi.org/', 'http://doi.org/', 'doi.org/']
@@ -55,11 +64,15 @@ def clean_doi(doi):
         while doi.startswith(prefix):
             doi = doi[len(prefix):]
     
-    # If it still starts with http and doesn't look like a DOI, return as is
+    # If it still starts with http and doesn't look like a DOI, return empty string
     if doi.startswith(('http://', 'https://')) and not re.match(r'10\.\d{4,}/', doi):
-        return doi
+        return ''
     
-    return doi
+    # If it looks like a DOI, return it
+    if re.match(r'10\.\d{4,}/', doi):
+        return doi
+        
+    return ''
 
 def get_publications(scholar_id):
     """Fetch publications from Google Scholar."""
@@ -118,7 +131,7 @@ def create_publication_folder(pub_data, base_path):
     
         # Extract year from bib data
         year = parse_year(pub_data['bib'].get('pub_year', ''))
-        if year == str(datetime.now().year):
+        if year == "2024":
             # Try to find year in title or journal string
             title_year = re.search(r'(19|20)\d{2}', title)
             journal = pub_data['bib'].get('journal', '')
