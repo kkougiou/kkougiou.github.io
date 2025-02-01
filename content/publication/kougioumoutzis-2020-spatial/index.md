@@ -13,4 +13,6 @@ publishDate: '2024-04-04T04:28:47.680102Z'
 publication_types:
 - article-journal
 publication: '*Biology*'
+doi: '10.3390/biology9080199'
+url_pdf: 'https://www.mdpi.com/2079-7737/9/8/199/pdf'
 ---
