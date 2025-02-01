@@ -14,6 +14,34 @@ def sanitize_filename(title):
     filename = re.sub(r'\s+', '-', filename.strip())
     return filename
 
+def parse_year(year_str):
+    """Parse year from various formats and validate."""
+    if not year_str:
+        return str(datetime.now().year)
+    
+    try:
+        # Try to convert to integer
+        year = int(year_str)
+        # Validate year is reasonable (between 1900 and current year)
+        current_year = datetime.now().year
+        if year < 1900 or year > current_year:
+            return str(current_year)
+        return str(year)
+    except (ValueError, TypeError):
+        # If conversion fails, return current year
+        return str(datetime.now().year)
+
+def clean_doi(doi):
+    """Clean DOI by removing common prefixes."""
+    if not doi:
+        return ''
+    # Remove common prefixes
+    prefixes = ['https://doi.org/', 'http://doi.org/', 'doi.org/']
+    for prefix in prefixes:
+        if doi.startswith(prefix):
+            return doi[len(prefix):]
+    return doi
+
 def get_publications(scholar_id):
     """Fetch publications from Google Scholar."""
     print(f"Fetching publications for Scholar ID: {scholar_id}")
@@ -34,15 +62,23 @@ def get_publications(scholar_id):
         # Fill details for each publication
         print("Retrieving detailed publication information...")
         publications = []
+        seen_titles = set()  # Track unique titles to avoid duplicates
+        
         for pub in author['publications']:
             try:
                 filled_pub = scholarly.fill(pub)
+                # Skip if we've already seen this title
+                title = filled_pub['bib']['title']
+                if title in seen_titles:
+                    print(f"Skipping duplicate: {title}")
+                    continue
+                seen_titles.add(title)
                 publications.append(filled_pub)
-                print(f"Retrieved: {filled_pub['bib']['title']}")
+                print(f"Retrieved: {title}")
             except Exception as e:
                 print(f"Warning: Could not retrieve details for a publication: {e}")
         
-        print(f"Successfully retrieved {len(publications)} publications")
+        print(f"Successfully retrieved {len(publications)} unique publications")
         return publications
     except Exception as e:
         print(f"Error fetching publications: {e}")
@@ -65,14 +101,14 @@ def create_publication_folder(pub_data, base_path):
         print("Preparing front matter...")
         front_matter = {
             'title': title,
-            'date': pub_data['bib'].get('pub_year', ''),
+            'date': parse_year(pub_data['bib'].get('pub_year', '')),
             'authors': [author.strip() for author in pub_data['bib'].get('author', '').split(' and ')],
             'publication_types': ['2'],  # Assuming all are journal articles
             'featured': False,
             'publication': pub_data['bib'].get('journal', ''),
             'abstract': pub_data.get('bib', {}).get('abstract', ''),
             'url_pdf': '',  # You might want to add this manually
-            'doi': pub_data.get('pub_url', ''),  # Using pub_url as it often contains the DOI
+            'doi': clean_doi(pub_data.get('pub_url', '')),
             'tags': [],
         }
     
