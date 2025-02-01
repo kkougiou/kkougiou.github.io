@@ -108,7 +108,7 @@ def create_publication_folder(pub_data, base_path):
 
 def main():
     # Your Google Scholar ID
-    SCHOLAR_ID = ""  # Add your Google Scholar ID here
+    SCHOLAR_ID = "CceadYwAAAAJ"  # Konstantinos Kougioumoutzis
     
     if not SCHOLAR_ID:
         print("Please set your Google Scholar ID in the script")
