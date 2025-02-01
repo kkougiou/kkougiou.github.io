@@ -20,7 +20,7 @@ def parse_year(year_str):
         return str(datetime.now().year)
     
     try:
-        # Extract first 4-digit number that looks like a year
+        # Try to extract year from string
         year_match = re.search(r'(19|20)\d{2}', str(year_str))
         if year_match:
             year = int(year_match.group(0))
@@ -28,14 +28,26 @@ def parse_year(year_str):
             current_year = datetime.now().year
             if 1900 <= year <= current_year:
                 return str(year)
-        return str(datetime.now().year)
+            
+        # If no valid year found in the string, try direct conversion
+        year = int(str(year_str))
+        if 1900 <= year <= current_year:
+            return str(year)
+            
+        # If year is invalid, return current year
+        return str(current_year)
     except (ValueError, TypeError):
-        return str(datetime.now().year)
+        # If conversion fails, return current year
+        return str(current_year)
 
 def clean_doi(doi):
     """Clean DOI by removing common prefixes."""
     if not doi:
         return ''
+    
+    # If it's a ResearchGate or similar URL, return it as is
+    if any(domain in doi.lower() for domain in ['researchgate.net', 'academia.edu', 'authorea.com']):
+        return doi
     
     # Remove common prefixes
     prefixes = ['https://doi.org/', 'http://doi.org/', 'doi.org/']
@@ -43,8 +55,8 @@ def clean_doi(doi):
         while doi.startswith(prefix):
             doi = doi[len(prefix):]
     
-    # If it still starts with http, it might be a direct URL
-    if doi.startswith(('http://', 'https://')):
+    # If it still starts with http and doesn't look like a DOI, return as is
+    if doi.startswith(('http://', 'https://')) and not re.match(r'10\.\d{4,}/', doi):
         return doi
     
     return doi
@@ -104,11 +116,23 @@ def create_publication_folder(pub_data, base_path):
         os.makedirs(folder_path, exist_ok=True)
         print(f"Created/verified folder: {folder_path}")
     
+        # Extract year from bib data
+        year = parse_year(pub_data['bib'].get('pub_year', ''))
+        if year == str(datetime.now().year):
+            # Try to find year in title or journal string
+            title_year = re.search(r'(19|20)\d{2}', title)
+            journal = pub_data['bib'].get('journal', '')
+            journal_year = re.search(r'(19|20)\d{2}', journal) if journal else None
+            if title_year:
+                year = title_year.group(0)
+            elif journal_year:
+                year = journal_year.group(0)
+    
         # Prepare front matter
         print("Preparing front matter...")
         front_matter = {
             'title': title,
-            'date': parse_year(pub_data['bib'].get('pub_year', '')),
+            'date': year,
             'authors': [author.strip() for author in pub_data['bib'].get('author', '').split(' and ')],
             'publication_types': ['2'],  # Assuming all are journal articles
             'featured': False,
