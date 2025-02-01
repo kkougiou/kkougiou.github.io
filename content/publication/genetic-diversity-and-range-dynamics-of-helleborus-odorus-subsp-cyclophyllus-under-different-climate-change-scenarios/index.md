@@ -29,6 +29,10 @@ authors:
 date: '2020-01-01'
 doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: Forests
 publication_types:
 - '2'

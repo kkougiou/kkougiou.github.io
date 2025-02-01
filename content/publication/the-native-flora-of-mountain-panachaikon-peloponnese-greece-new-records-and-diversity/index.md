@@ -17,8 +17,12 @@ authors:
 - Theodoros Georgiadis
 - Argyro Tiniakou
 date: '2014-01-01'
-doi: 10.1186/2241-5793-21-9
+doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: Journal of Biological Research-Thessaloniki
 publication_types:
 - '2'

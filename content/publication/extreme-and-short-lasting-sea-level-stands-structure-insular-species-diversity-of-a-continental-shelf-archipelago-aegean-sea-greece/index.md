@@ -27,8 +27,12 @@ authors:
 - Sietze Norder
 - E Emiel Van Loon
 date: '2020-01-01'
-doi: 10.22541/au.158765865.53573134
+doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: Authorea Preprints
 publication_types:
 - '2'

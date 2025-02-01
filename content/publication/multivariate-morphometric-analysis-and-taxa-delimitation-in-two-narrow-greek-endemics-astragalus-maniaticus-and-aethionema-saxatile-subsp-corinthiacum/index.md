@@ -16,8 +16,12 @@ authors:
 - E Kalpoutzakis
 - Th Constantinidis
 date: '2017-01-01'
-doi: 10.1080/11263504.2015.1103797
+doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: Plant Biosystems-An International Journal Dealing with all Aspects of
   Plant Biology
 publication_types:

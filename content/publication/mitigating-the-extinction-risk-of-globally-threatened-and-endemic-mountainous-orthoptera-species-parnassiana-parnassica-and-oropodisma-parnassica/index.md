@@ -19,8 +19,12 @@ authors:
 - Luc Willemse
 - Vassiliki Kati
 date: '2025-01-01'
-doi: 10.1111/icad.12784
+doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: Insect Conservation and Diversity
 publication_types:
 - '2'

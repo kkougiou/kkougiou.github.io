@@ -16,8 +16,12 @@ authors:
 - Konstantinos Kougioumoutzis
 - Gregoris Iatrou
 date: '2016-01-01'
-doi: 10.3372/wi.46.46114.short
+doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: Willdenowia
 publication_types:
 - '2'

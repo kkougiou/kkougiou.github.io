@@ -17,8 +17,12 @@ authors:
 - Ourania Georgiou
 - Theodoros Georgiadis
 date: '2012-01-01'
-doi: 10.3372/wi.42.42115.short
+doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: Willdenowia
 publication_types:
 - '2'

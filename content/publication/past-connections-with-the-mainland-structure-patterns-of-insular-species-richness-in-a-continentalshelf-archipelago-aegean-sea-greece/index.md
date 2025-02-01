@@ -20,8 +20,12 @@ authors:
 - Elisavet Georgopoulou
 - Emiel E Van Loon
 date: '2021-01-01'
-doi: 10.1002/ece3.7438
+doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: Ecology and Evolution
 publication_types:
 - '2'

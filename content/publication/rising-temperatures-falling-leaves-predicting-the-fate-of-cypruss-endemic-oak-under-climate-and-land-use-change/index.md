@@ -24,6 +24,10 @@ authors:
 date: '2024-01-01'
 doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: Plants
 publication_types:
 - '2'

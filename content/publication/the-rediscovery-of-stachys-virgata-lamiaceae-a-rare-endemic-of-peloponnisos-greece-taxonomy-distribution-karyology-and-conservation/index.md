@@ -7,6 +7,10 @@ authors:
 date: '2015-01-01'
 doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: Phytotaxa
 publication_types:
 - '2'

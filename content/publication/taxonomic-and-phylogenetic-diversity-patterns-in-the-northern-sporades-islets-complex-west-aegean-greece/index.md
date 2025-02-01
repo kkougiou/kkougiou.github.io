@@ -22,8 +22,12 @@ authors:
 - Arne Strid
 - Panayotis Dimopoulos
 date: '2020-01-01'
-doi: 10.1007/s00606-020-01660-0
+doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: Plant Systematics and Evolution
 publication_types:
 - '2'

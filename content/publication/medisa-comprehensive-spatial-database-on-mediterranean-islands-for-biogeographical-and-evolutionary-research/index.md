@@ -36,8 +36,12 @@ authors:
 - Kostas A Triantis
 - Alessandro Chiarucci
 date: '2024-01-01'
-doi: 10.1111/geb.13855
+doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: Global Ecology and Biogeography
 publication_types:
 - '2'

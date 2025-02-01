@@ -26,6 +26,10 @@ authors:
 date: '2022-01-01'
 doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: Journal of Marine Science and Engineering
 publication_types:
 - '2'

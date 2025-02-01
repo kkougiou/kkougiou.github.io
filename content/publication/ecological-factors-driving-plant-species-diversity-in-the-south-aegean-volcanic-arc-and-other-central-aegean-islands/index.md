@@ -15,8 +15,12 @@ authors:
 - Konstantinos Kougioumoutzis
 - Argyro Tiniakou
 date: '2015-01-01'
-doi: 10.1080/17550874.2013.866989
+doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: Plant Ecology & Diversity
 publication_types:
 - '2'

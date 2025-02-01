@@ -26,9 +26,13 @@ authors:
 - Panayotis Dimopoulos
 - Arne Strid
 - Maria Panitsa
-date: '2024-01-01'
-doi: 10.2139/ssrn.5014808
+date: '2025-01-01'
+doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: Available at SSRN 5014808
 publication_types:
 - '2'

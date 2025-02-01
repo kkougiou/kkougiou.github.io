@@ -31,6 +31,10 @@ authors:
 date: '2023-01-01'
 doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: Land
 publication_types:
 - '2'

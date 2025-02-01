@@ -10,9 +10,13 @@ authors:
 date: '2021-01-01'
 doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: ''
 publication_types:
-- '2'
+- '0'
 tags: []
 title: 'Plant endemism centres and biodiversity hotspots in Greece. Biology 10 (2):
   72'

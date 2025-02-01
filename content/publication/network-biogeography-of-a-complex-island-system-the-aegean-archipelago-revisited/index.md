@@ -18,8 +18,12 @@ authors:
 - Kostas A Triantis
 - Panayiotis Trigas
 date: '2017-01-01'
-doi: 10.1111/jbi.12920
+doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: Journal of Biogeography
 publication_types:
 - '2'

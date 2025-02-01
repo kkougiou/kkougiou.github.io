@@ -17,8 +17,12 @@ authors:
 - Kostas Kougioumoutzis
 - Maria Chatzaki
 date: '2013-01-01'
-doi: 10.1007/s10841-013-9553-0
+doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: Journal of insect conservation
 publication_types:
 - '2'

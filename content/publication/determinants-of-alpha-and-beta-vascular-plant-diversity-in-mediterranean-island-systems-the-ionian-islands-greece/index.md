@@ -18,8 +18,12 @@ authors:
 - Maria Panitsa
 - Panayiotis Trigas
 date: '2019-01-01'
-doi: 10.1111/njb.02156
+doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: Nordic Journal of Botany
 publication_types:
 - '2'

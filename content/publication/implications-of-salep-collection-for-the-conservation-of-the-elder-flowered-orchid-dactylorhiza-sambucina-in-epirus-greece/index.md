@@ -15,8 +15,12 @@ authors:
 - Konstantinos Kougioumoutzis
 - John M Halley
 date: '2019-01-01'
-doi: 10.1186/s40709-019-0110-1
+doi: ''
 featured: false
+image:
+  caption: ''
+  focal_point: Smart
+  preview_only: false
 publication: Journal of Biological Research-Thessaloniki
 publication_types:
 - '2'
