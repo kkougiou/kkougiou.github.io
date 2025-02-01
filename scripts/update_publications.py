@@ -19,15 +19,6 @@ def get_publications(scholar_id):
     print(f"Fetching publications for Scholar ID: {scholar_id}")
     
     try:
-        # Use free proxies to avoid rate limiting
-        pg = ProxyGenerator()
-        success = pg.FreeProxies()
-        if success:
-            scholarly.use_proxy(pg)
-            print("Successfully configured proxy")
-        else:
-            print("Warning: Could not configure proxy")
-        
         # Search for the author by ID
         print("Searching for author...")
         author = scholarly.search_author_id(scholar_id)
