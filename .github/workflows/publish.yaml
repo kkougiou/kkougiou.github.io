@@ -45,6 +45,10 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
+      - name: Tidy Modules
+        run: |
+          go mod tidy
+          hugo mod tidy
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
