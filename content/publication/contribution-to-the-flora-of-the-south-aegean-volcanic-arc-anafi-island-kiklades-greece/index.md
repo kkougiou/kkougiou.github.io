@@ -16,8 +16,8 @@ authors:
 - Argyro Tiniakou
 - Ourania Georgiou
 - Theodoros Georgiadis
-date: '2012'
-doi: ''
+date: '2012-01-01'
+doi: 10.3372/wi.42.42115.short
 featured: false
 publication: Willdenowia
 publication_types:

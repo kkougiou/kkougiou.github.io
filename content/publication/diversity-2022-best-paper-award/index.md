@@ -6,7 +6,7 @@ abstract: We are pleased to announce the winners of the Diversity 2022 Best Pape
   Prof. Dr. Michael Wink, have been selected.
 authors:
 - Diversity Editorial Office
-date: '2022'
+date: '2022-01-01'
 doi: ''
 featured: false
 publication: ''

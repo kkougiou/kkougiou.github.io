@@ -22,7 +22,7 @@ authors:
 - Efthalia Stathi
 - Panayiotis Trigas
 - Aristeidis Parmakelis
-date: '2021'
+date: '2021-01-01'
 doi: ''
 featured: false
 publication: Diversity

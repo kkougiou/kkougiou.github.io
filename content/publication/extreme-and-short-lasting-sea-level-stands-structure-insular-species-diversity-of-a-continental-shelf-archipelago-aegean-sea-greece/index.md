@@ -26,8 +26,8 @@ authors:
 - Stylianos Simaiakis
 - Sietze Norder
 - E Emiel Van Loon
-date: '2020'
-doi: ''
+date: '2020-01-01'
+doi: 10.22541/au.158765865.53573134
 featured: false
 publication: Authorea Preprints
 publication_types:

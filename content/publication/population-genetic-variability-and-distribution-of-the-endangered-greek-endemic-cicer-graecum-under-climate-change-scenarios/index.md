@@ -18,7 +18,7 @@ authors:
 - Ioannis Ganopoulos
 - Evangelia V Avramidou
 - Eleni Tani
-date: '2020'
+date: '2020-01-01'
 doi: ''
 featured: false
 publication: AoB PLANTS

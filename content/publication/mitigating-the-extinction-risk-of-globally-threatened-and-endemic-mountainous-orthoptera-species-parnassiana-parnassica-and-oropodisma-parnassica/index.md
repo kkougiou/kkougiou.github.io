@@ -18,8 +18,8 @@ authors:
 - Olga Tzortzakaki
 - Luc Willemse
 - Vassiliki Kati
-date: '2025'
-doi: ''
+date: '2025-01-01'
+doi: 10.1111/icad.12784
 featured: false
 publication: Insect Conservation and Diversity
 publication_types:

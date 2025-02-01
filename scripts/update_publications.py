@@ -5,6 +5,9 @@ from datetime import datetime
 from scholarly import scholarly, ProxyGenerator
 import yaml
 import re
+import requests
+from bs4 import BeautifulSoup
+import time
 
 def sanitize_filename(title):
     """Convert title to filename-friendly format."""
@@ -17,7 +20,7 @@ def sanitize_filename(title):
 def extract_year_from_text(text):
     """Extract year from text content."""
     # Look for years in reverse chronological order (most recent first)
-    years = re.findall(r'(20\d{2}|19\d{2})', text)
+    years = re.findall(r'(20\d{2}|19\d{2})', str(text))
     if years:
         # Convert to integers and sort in descending order
         years = sorted([int(y) for y in years], reverse=True)
@@ -25,11 +28,18 @@ def extract_year_from_text(text):
         current_year = datetime.now().year
         for year in years:
             if year <= current_year:
-                return str(year)
+                return year
     return None
 
 def parse_year(pub_data):
     """Parse year from publication data."""
+    # Handle special cases
+    title = pub_data['bib'].get('title', '').lower()
+    if 'taxonomic and phylogenetic plant diversity patterns of polluted metal mining sites in attika' in title:
+        return 2009
+    if 'current greek protected areas fail to fully capture shifting endemism hotspots' in title:
+        return 2024
+    
     current_year = datetime.now().year
     
     # Try to get year from pub_year field
@@ -38,7 +48,13 @@ def parse_year(pub_data):
         if year_match:
             year = int(year_match.group(0))
             if 1900 <= year <= current_year:
-                return str(year)
+                return year
+    
+    # Try to find year in citation
+    if 'citation' in pub_data['bib']:
+        year = extract_year_from_text(pub_data['bib']['citation'])
+        if year:
+            return year
     
     # Try to find year in title
     year = extract_year_from_text(pub_data['bib']['title'])
@@ -57,41 +73,46 @@ def parse_year(pub_data):
         if year:
             return year
     
-    # Default to 2024 if no valid year found
-    return "2024"
+    # Default to current year if no valid year found
+    return current_year
 
-def clean_doi(doi):
-    """Clean DOI by removing common prefixes."""
-    if not doi:
+def clean_doi(pub_data):
+    """Extract and clean DOI from publication data."""
+    if not pub_data:
         return ''
+        
+    # Handle special cases
+    title = pub_data['bib'].get('title', '').lower()
+    if 'taxonomic and phylogenetic plant diversity patterns of polluted metal mining sites in attika' in title:
+        return ''
+    if 'current greek protected areas fail to fully capture shifting endemism hotspots' in title:
+        return '10.2139/ssrn.5014808'
     
-    # If it's a ResearchGate URL, extract the DOI if possible
-    if 'researchgate.net' in doi.lower():
-        # Try to find a DOI pattern in the URL
-        doi_match = re.search(r'10\.\d{4,}/[-._;()/:\w]+', doi)
+    # Try to get DOI from citation field first
+    if 'citation' in pub_data.get('bib', {}):
+        doi_match = re.search(r'10\.\d{4,}/[-._;()/:\w]+', pub_data['bib']['citation'])
         if doi_match:
             return doi_match.group(0)
-        # If no DOI found, return empty string
-        return ''
     
-    # If it's another repository URL, return empty string
-    if any(domain in doi.lower() for domain in ['academia.edu', 'authorea.com']):
-        return ''
+    # Try to get DOI from eprint field
+    if 'eprint' in pub_data.get('bib', {}):
+        doi_match = re.search(r'10\.\d{4,}/[-._;()/:\w]+', pub_data['bib']['eprint'])
+        if doi_match:
+            return doi_match.group(0)
     
-    # Remove common prefixes
-    prefixes = ['https://doi.org/', 'http://doi.org/', 'doi.org/']
-    for prefix in prefixes:
-        while doi.startswith(prefix):
-            doi = doi[len(prefix):]
+    # Try the pub_url field
+    if 'pub_url' in pub_data:
+        # First try to extract DOI from URL
+        doi_match = re.search(r'10\.\d{4,}/[-._;()/:\w]+', pub_data['pub_url'])
+        if doi_match:
+            return doi_match.group(0)
+            
+    # Try the DOI field if it exists
+    if 'doi' in pub_data.get('bib', {}):
+        doi_match = re.search(r'10\.\d{4,}/[-._;()/:\w]+', pub_data['bib']['doi'])
+        if doi_match:
+            return doi_match.group(0)
     
-    # If it still starts with http and doesn't look like a DOI, return empty string
-    if doi.startswith(('http://', 'https://')) and not re.match(r'10\.\d{4,}/', doi):
-        return ''
-    
-    # If it looks like a DOI, return it
-    if re.match(r'10\.\d{4,}/', doi):
-        return doi
-        
     return ''
 
 def get_publications(scholar_id):
@@ -127,6 +148,8 @@ def get_publications(scholar_id):
                 seen_titles.add(title)
                 publications.append(filled_pub)
                 print(f"Retrieved: {title}")
+                # Add a small delay to avoid hitting rate limits
+                time.sleep(1)
             except Exception as e:
                 print(f"Warning: Could not retrieve details for a publication: {e}")
         
@@ -151,19 +174,20 @@ def create_publication_folder(pub_data, base_path):
     
         # Extract year using the enhanced parse_year function
         year = parse_year(pub_data)
+        date = f"{year}-01-01"
     
         # Prepare front matter
         print("Preparing front matter...")
         front_matter = {
             'title': title,
-            'date': year,
+            'date': date,
             'authors': [author.strip() for author in pub_data['bib'].get('author', '').split(' and ')],
             'publication_types': ['2'],  # Assuming all are journal articles
             'featured': False,
             'publication': pub_data['bib'].get('journal', ''),
             'abstract': pub_data.get('bib', {}).get('abstract', ''),
             'url_pdf': '',  # You might want to add this manually
-            'doi': clean_doi(pub_data.get('pub_url', '')),
+            'doi': clean_doi(pub_data),
             'tags': [],
         }
     

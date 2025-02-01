@@ -21,7 +21,7 @@ authors:
 - Panayiotis Trigas
 - Katerina Vardinoyannis
 - Spyros Sfenthourakis
-date: '2018'
+date: '2018-01-01'
 doi: ''
 featured: false
 publication: ''

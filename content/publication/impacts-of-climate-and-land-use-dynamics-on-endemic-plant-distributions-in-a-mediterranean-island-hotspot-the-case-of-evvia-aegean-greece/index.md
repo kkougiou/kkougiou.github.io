@@ -16,8 +16,8 @@ authors:
 - Panayiotis Trigas
 - Arne Strid
 - Panayotis Dimopoulos
-date: '2025'
-doi: ''
+date: '2025-01-01'
+doi: 10.22541/au.173709953.33599094
 featured: false
 publication: ''
 publication_types:

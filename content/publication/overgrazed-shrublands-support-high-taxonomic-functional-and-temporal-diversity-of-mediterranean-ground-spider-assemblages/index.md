@@ -15,7 +15,7 @@ authors:
 - Eleni Panayiotou
 - Konstantinos Kougioumoutzis
 - Maria Chatzaki
-date: '2019'
+date: '2019-01-01'
 doi: ''
 featured: false
 publication: Ecological Indicators

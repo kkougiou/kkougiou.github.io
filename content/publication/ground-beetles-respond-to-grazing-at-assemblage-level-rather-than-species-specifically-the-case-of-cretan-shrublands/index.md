@@ -16,8 +16,8 @@ authors:
 - Apostolos Trichas
 - Kostas Kougioumoutzis
 - Maria Chatzaki
-date: '2013'
-doi: ''
+date: '2013-01-01'
+doi: 10.1007/s10841-013-9553-0
 featured: false
 publication: Journal of insect conservation
 publication_types:

@@ -25,7 +25,7 @@ authors:
 - Arne Strid
 - Panayotis Dimopoulos
 - Maria Panitsa
-date: '2022'
+date: '2022-01-01'
 doi: ''
 featured: false
 publication: Sustainability

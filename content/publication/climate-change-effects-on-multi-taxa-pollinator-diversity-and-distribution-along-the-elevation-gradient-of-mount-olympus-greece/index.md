@@ -15,7 +15,7 @@ authors:
 - Konstantinos Minachilis
 - Konstantinos Kougioumoutzis
 - Theodora Petanidou
-date: '2021'
+date: '2021-01-01'
 doi: ''
 featured: false
 publication: Ecological Indicators

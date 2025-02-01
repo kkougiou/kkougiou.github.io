@@ -28,7 +28,7 @@ authors:
 - Ilias Apostolidis
 - Arne Strid
 - Panayotis Dimopoulos
-date: '2023'
+date: '2023-01-01'
 doi: ''
 featured: false
 publication: Land

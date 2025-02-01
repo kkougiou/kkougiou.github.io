@@ -15,8 +15,8 @@ authors:
 - Maria Tsakiri
 - Konstantinos Kougioumoutzis
 - Gregoris Iatrou
-date: '2016'
-doi: ''
+date: '2016-01-01'
+doi: 10.3372/wi.46.46114.short
 featured: false
 publication: Willdenowia
 publication_types:

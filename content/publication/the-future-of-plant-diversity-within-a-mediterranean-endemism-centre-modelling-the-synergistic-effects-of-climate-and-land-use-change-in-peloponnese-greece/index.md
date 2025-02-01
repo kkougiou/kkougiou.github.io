@@ -18,7 +18,7 @@ authors:
 - Panayotis Dimopoulos
 - Arne Strid
 - Maria Panitsa
-date: '2024'
+date: '2024-01-01'
 doi: ''
 featured: false
 publication: Science of The Total Environment

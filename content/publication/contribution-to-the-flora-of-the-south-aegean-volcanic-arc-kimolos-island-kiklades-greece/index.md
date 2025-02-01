@@ -16,7 +16,7 @@ authors:
 - A Tiniakou
 - O Georgiou
 - Th Georgiadis
-date: '2014'
+date: '2014-01-01'
 doi: ''
 featured: false
 publication: Edinburgh Journal of Botany

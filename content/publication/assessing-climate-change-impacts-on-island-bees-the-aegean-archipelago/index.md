@@ -23,7 +23,7 @@ authors:
 - Konstantinos Kougioumoutzis
 - Aggeliki Kaloveloni
 - Theodora Petanidou
-date: '2022'
+date: '2022-01-01'
 doi: ''
 featured: false
 publication: Biology

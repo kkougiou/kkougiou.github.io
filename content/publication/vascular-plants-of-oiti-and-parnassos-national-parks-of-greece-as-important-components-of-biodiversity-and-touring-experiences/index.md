@@ -21,7 +21,7 @@ authors:
 - George Pavlidis
 - Spyridoula Stamouli
 - Konstantinia Tsagkari
-date: '2020'
+date: '2020-01-01'
 doi: ''
 featured: false
 publication: ''

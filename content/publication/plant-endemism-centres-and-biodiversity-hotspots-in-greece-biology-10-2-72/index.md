@@ -7,7 +7,7 @@ authors:
 - A Kallimanis
 - A Strid
 - P Dimopoulos
-date: '2021'
+date: '2021-01-01'
 doi: ''
 featured: false
 publication: ''

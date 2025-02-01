@@ -5,7 +5,7 @@ authors:
 - A. Tiniakou
 - G. Dimitrellos
 - Th. Georgiadis
-date: '2010'
+date: '2010-01-01'
 doi: ''
 featured: false
 publication: Botanika Chronika

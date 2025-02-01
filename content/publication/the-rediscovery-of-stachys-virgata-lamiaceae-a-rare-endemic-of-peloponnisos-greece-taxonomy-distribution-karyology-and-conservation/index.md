@@ -4,7 +4,7 @@ authors:
 - Theophanis Constantinidis
 - Eleftherios Kalpoutzakis
 - Konstantinos Kougioumoutzis
-date: '2015'
+date: '2015-01-01'
 doi: ''
 featured: false
 publication: Phytotaxa

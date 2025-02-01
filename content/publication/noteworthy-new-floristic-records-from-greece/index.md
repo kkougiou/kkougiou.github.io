@@ -19,7 +19,7 @@ authors:
 - Konstantinos Kougioumoutzis
 - Konstantinos Katopodis
 - Theophanis Constantinidis
-date: '2021'
+date: '2021-01-01'
 doi: ''
 featured: false
 publication: Botanica Serbica

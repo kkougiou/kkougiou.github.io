@@ -26,7 +26,7 @@ authors:
 - Panayiotis Trigas
 - Arne Strid
 - Panayotis Dimopoulos
-date: '2013'
+date: '2013-01-01'
 doi: ''
 featured: false
 publication: management

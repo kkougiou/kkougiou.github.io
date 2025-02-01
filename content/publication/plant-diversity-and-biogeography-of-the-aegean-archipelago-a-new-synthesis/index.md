@@ -5,7 +5,7 @@ authors:
 - Maria Panitsa
 - Anna Kagiampaki
 - Konstantinos Kougioumoutzis
-date: '2018'
+date: '2018-01-01'
 doi: ''
 featured: false
 publication: ''

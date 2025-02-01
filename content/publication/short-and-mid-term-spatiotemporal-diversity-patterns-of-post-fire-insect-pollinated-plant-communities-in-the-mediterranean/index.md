@@ -19,7 +19,7 @@ authors:
 - Georgios Nakas
 - Konstantinos Kougioumoutzis
 - Theodora Petanidou
-date: '2023'
+date: '2023-01-01'
 doi: ''
 featured: false
 publication: Land

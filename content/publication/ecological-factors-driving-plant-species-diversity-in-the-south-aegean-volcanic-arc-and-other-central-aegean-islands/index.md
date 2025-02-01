@@ -14,8 +14,8 @@ abstract: 'Background: The South Aegean Volcanic Arc (SAVA), one of the most not
 authors:
 - Konstantinos Kougioumoutzis
 - Argyro Tiniakou
-date: '2015'
-doi: ''
+date: '2015-01-01'
+doi: 10.1080/17550874.2013.866989
 featured: false
 publication: Plant Ecology & Diversity
 publication_types:

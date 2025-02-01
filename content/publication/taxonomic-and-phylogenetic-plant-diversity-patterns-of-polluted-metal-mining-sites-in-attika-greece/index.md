@@ -13,7 +13,7 @@ authors:
 - Dimitra Megadouka
 - Konstantinos Serelis
 - Jaco Vangronsveld
-date: '2009'
+date: '2009-01-01'
 doi: ''
 featured: false
 publication: ''

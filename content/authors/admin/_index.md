@@ -65,7 +65,7 @@ skills:
         icon_pack: fas
       - name: Python
         description: ''
-        percent: 40
+        percent: 50
         icon: python
         icon_pack: fab
       - name: Markdown

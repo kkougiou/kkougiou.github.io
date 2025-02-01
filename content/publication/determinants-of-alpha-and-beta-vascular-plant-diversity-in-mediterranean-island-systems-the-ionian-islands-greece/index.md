@@ -17,8 +17,8 @@ authors:
 - Eleni Iliadou
 - Maria Panitsa
 - Panayiotis Trigas
-date: '2019'
-doi: ''
+date: '2019-01-01'
+doi: 10.1111/njb.02156
 featured: false
 publication: Nordic Journal of Botany
 publication_types:

@@ -14,7 +14,7 @@ authors:
 - Panayiotis Trigas
 - Ioannis Kokkoris
 - Konstantinos Kougioumoutzis
-date: '2017'
+date: '2017-01-01'
 doi: ''
 featured: false
 publication: Phytotaxa

@@ -23,7 +23,7 @@ authors:
 - Niki Chartosia
 - Demetris Kletou
 - Stefanos Kalogirou
-date: '2022'
+date: '2022-01-01'
 doi: ''
 featured: false
 publication: Journal of Marine Science and Engineering

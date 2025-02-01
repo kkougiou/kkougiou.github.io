@@ -23,16 +23,12 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install scholarly pyyaml
+          pip install scholarly pyyaml requests beautifulsoup4
 
       - name: Update publications
-        env:
-          SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
         run: |
-          # Update the Scholar ID in the script
-          sed -i "s/SCHOLAR_ID = \"\"/SCHOLAR_ID = \"$SCHOLAR_ID\"/" scripts/update_publications.py
-          # Run the script
           python scripts/update_publications.py
+        continue-on-error: true  # Continue even if script fails
 
       - name: Check for changes
         id: check_changes

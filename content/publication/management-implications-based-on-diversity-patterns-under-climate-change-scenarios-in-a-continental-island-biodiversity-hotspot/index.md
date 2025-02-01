@@ -26,8 +26,8 @@ authors:
 - Panayiotis Trigas
 - Arne Strid
 - Panayotis Dimopoulos
-date: '2020'
-doi: ''
+date: '2020-01-01'
+doi: 10.1101/2020.03.01.971143.abstract
 featured: false
 publication: bioRxiv
 publication_types:

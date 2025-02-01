@@ -26,7 +26,7 @@ authors:
 - Gregoris Iatrou
 - Panayiotis Trigas
 - Vasileios Papasotiropoulos
-date: '2020'
+date: '2020-01-01'
 doi: ''
 featured: false
 publication: Forests

@@ -15,8 +15,8 @@ authors:
 - K Kougioumoutzis
 - E Kalpoutzakis
 - Th Constantinidis
-date: '2017'
-doi: ''
+date: '2017-01-01'
+doi: 10.1080/11263504.2015.1103797
 featured: false
 publication: Plant Biosystems-An International Journal Dealing with all Aspects of
   Plant Biology

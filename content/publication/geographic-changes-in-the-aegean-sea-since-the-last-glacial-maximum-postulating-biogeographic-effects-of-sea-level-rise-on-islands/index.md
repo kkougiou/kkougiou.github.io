@@ -23,7 +23,7 @@ authors:
 - Emiel Van Loon
 - Kathleen MC Tjørve
 - Even Tjørve
-date: '2017'
+date: '2017-01-01'
 doi: ''
 featured: false
 publication: Palaeogeography, Palaeoclimatology, Palaeoecology

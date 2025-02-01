@@ -26,7 +26,7 @@ authors:
 - Panayiotis Trigas
 - Arne Strid
 - Panayotis Dimopoulos
-date: '2020'
+date: '2020-01-01'
 doi: ''
 featured: false
 publication: Diversity

@@ -16,8 +16,8 @@ authors:
 - Konstantinos Kougioumoutzis
 - Aikaterini Ermidou
 - Eleftherios Kalpoutzakis
-date: '2018'
-doi: ''
+date: '2018-01-01'
+doi: 10.3372/wi.48.48110.short
 featured: false
 publication: Willdenowia
 publication_types:

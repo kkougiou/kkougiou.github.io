@@ -30,7 +30,7 @@ authors:
 - Nikolaos Paraskevas
 - Ursula Foskolou
 - Michael Papadopoulos
-date: '2022'
+date: '2022-01-01'
 doi: ''
 featured: false
 publication: Sustainability

@@ -14,8 +14,8 @@ authors:
 - Kalliopi Stara
 - Konstantinos Kougioumoutzis
 - John M Halley
-date: '2019'
-doi: ''
+date: '2019-01-01'
+doi: 10.1186/s40709-019-0110-1
 featured: false
 publication: Journal of Biological Research-Thessaloniki
 publication_types:
