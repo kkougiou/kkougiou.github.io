@@ -13,4 +13,6 @@ publishDate: '2024-04-04T04:28:47.673994Z'
 publication_types:
 - article-journal
 publication: '*Diversity*'
+doi: '10.3390/d12070270'
+url_pdf: 'https://www.mdpi.com/1424-2818/12/7/270/pdf'
 ---
