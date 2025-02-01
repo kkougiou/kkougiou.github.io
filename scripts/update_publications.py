@@ -16,22 +16,42 @@ def sanitize_filename(title):
 
 def get_publications(scholar_id):
     """Fetch publications from Google Scholar."""
-    # Optional: Use proxies if you hit rate limits
-    # pg = ProxyGenerator()
-    # pg.FreeProxies()
-    # scholarly.use_proxy(pg)
+    print(f"Fetching publications for Scholar ID: {scholar_id}")
     
     try:
+        # Use free proxies to avoid rate limiting
+        pg = ProxyGenerator()
+        success = pg.FreeProxies()
+        if success:
+            scholarly.use_proxy(pg)
+            print("Successfully configured proxy")
+        else:
+            print("Warning: Could not configure proxy")
+        
         # Search for the author by ID
+        print("Searching for author...")
         author = scholarly.search_author_id(scholar_id)
         if not author:
-            print(f"No author found with ID: {scholar_id}")
+            print(f"Error: No author found with ID: {scholar_id}")
             return []
             
         # Fill in author details including publications
+        print("Found author, retrieving full profile...")
         author = scholarly.fill(author)
-        publications = scholarly.fill(author['publications'])
+        print(f"Found {len(author['publications'])} publications")
         
+        # Fill details for each publication
+        print("Retrieving detailed publication information...")
+        publications = []
+        for pub in author['publications']:
+            try:
+                filled_pub = scholarly.fill(pub)
+                publications.append(filled_pub)
+                print(f"Retrieved: {filled_pub['bib']['title']}")
+            except Exception as e:
+                print(f"Warning: Could not retrieve details for a publication: {e}")
+        
+        print(f"Successfully retrieved {len(publications)} publications")
         return publications
     except Exception as e:
         print(f"Error fetching publications: {e}")
@@ -39,43 +59,52 @@ def get_publications(scholar_id):
 
 def create_publication_folder(pub_data, base_path):
     """Create a publication folder with index.md and cite.bib files."""
-    # Create folder name from title
-    folder_name = sanitize_filename(pub_data['bib']['title'])
-    folder_path = os.path.join(base_path, 'content/publication', folder_name)
+    try:
+        # Create folder name from title
+        title = pub_data['bib']['title']
+        print(f"\nProcessing publication: {title}")
+        folder_name = sanitize_filename(title)
+        folder_path = os.path.join(base_path, 'content/publication', folder_name)
+        
+        # Create folder if it doesn't exist
+        os.makedirs(folder_path, exist_ok=True)
+        print(f"Created/verified folder: {folder_path}")
     
-    # Create folder if it doesn't exist
-    os.makedirs(folder_path, exist_ok=True)
+        # Prepare front matter
+        print("Preparing front matter...")
+        front_matter = {
+            'title': title,
+            'date': pub_data['bib'].get('pub_year', ''),
+            'authors': [author.strip() for author in pub_data['bib'].get('author', '').split(' and ')],
+            'publication_types': ['2'],  # Assuming all are journal articles
+            'featured': False,
+            'publication': pub_data['bib'].get('journal', ''),
+            'abstract': pub_data.get('bib', {}).get('abstract', ''),
+            'url_pdf': '',  # You might want to add this manually
+            'doi': pub_data.get('pub_url', ''),  # Using pub_url as it often contains the DOI
+            'tags': [],
+        }
     
-    # Prepare front matter
-    front_matter = {
-        'title': pub_data['bib']['title'],
-        'date': pub_data['bib'].get('pub_year', ''),
-        'authors': [author.strip() for author in pub_data['bib'].get('author', '').split(' and ')],
-        'publication_types': ['2'],  # Assuming all are journal articles
-        'featured': False,
-        'publication': pub_data['bib'].get('journal', ''),
-        'abstract': pub_data.get('bib', {}).get('abstract', ''),
-        'url_pdf': '',  # You might want to add this manually
-        'doi': pub_data.get('doi', ''),
-        'tags': [],
-    }
+        # Create index.md
+        with open(os.path.join(folder_path, 'index.md'), 'w', encoding='utf-8') as f:
+            f.write('---\n')
+            f.write(yaml.dump(front_matter, allow_unicode=True))
+            f.write('---\n')
+        print(f"Created index.md")
     
-    # Create index.md
-    with open(os.path.join(folder_path, 'index.md'), 'w', encoding='utf-8') as f:
-        f.write('---\n')
-        f.write(yaml.dump(front_matter, allow_unicode=True))
-        f.write('---\n')
-    
-    # Create cite.bib if we have citation data
-    if 'bib' in pub_data:
-        with open(os.path.join(folder_path, 'cite.bib'), 'w', encoding='utf-8') as f:
-            # Create BibTeX entry
-            bib_entry = f"@article{{{folder_name},\n"
-            for key, value in pub_data['bib'].items():
-                if value and key != 'title':  # Skip empty values
-                    bib_entry += f"  {key} = {{{value}}},\n"
-            bib_entry += "}\n"
-            f.write(bib_entry)
+        # Create cite.bib if we have citation data
+        if 'bib' in pub_data:
+            with open(os.path.join(folder_path, 'cite.bib'), 'w', encoding='utf-8') as f:
+                # Create BibTeX entry
+                bib_entry = f"@article{{{folder_name},\n"
+                for key, value in pub_data['bib'].items():
+                    if value and key != 'title':  # Skip empty values
+                        bib_entry += f"  {key} = {{{value}}},\n"
+                bib_entry += "}\n"
+                f.write(bib_entry)
+            print(f"Created cite.bib")
+    except Exception as e:
+        print(f"Error processing publication {pub_data['bib'].get('title', 'Unknown')}: {e}")
 
 def main():
     # Your Google Scholar ID
