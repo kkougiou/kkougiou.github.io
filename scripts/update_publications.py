@@ -14,31 +14,51 @@ def sanitize_filename(title):
     filename = re.sub(r'\s+', '-', filename.strip())
     return filename
 
-def parse_year(year_str):
-    """Parse year from various formats and validate."""
-    if not year_str:
-        return str(datetime.now().year)
+def extract_year_from_text(text):
+    """Extract year from text content."""
+    # Look for years in reverse chronological order (most recent first)
+    years = re.findall(r'(20\d{2}|19\d{2})', text)
+    if years:
+        # Convert to integers and sort in descending order
+        years = sorted([int(y) for y in years], reverse=True)
+        # Return the most recent year that's not in the future
+        current_year = datetime.now().year
+        for year in years:
+            if year <= current_year:
+                return str(year)
+    return None
+
+def parse_year(pub_data):
+    """Parse year from publication data."""
+    current_year = datetime.now().year
     
-    try:
-        # Try to extract year from string
-        year_match = re.search(r'(19|20)\d{2}', str(year_str))
+    # Try to get year from pub_year field
+    if 'pub_year' in pub_data['bib']:
+        year_match = re.search(r'(19|20)\d{2}', str(pub_data['bib']['pub_year']))
         if year_match:
             year = int(year_match.group(0))
-            # Validate year is reasonable
-            current_year = datetime.now().year
             if 1900 <= year <= current_year:
                 return str(year)
+    
+    # Try to find year in title
+    year = extract_year_from_text(pub_data['bib']['title'])
+    if year:
+        return year
+        
+    # Try to find year in journal/venue
+    if 'journal' in pub_data['bib']:
+        year = extract_year_from_text(pub_data['bib']['journal'])
+        if year:
+            return year
             
-        # If no valid year found in the string, try direct conversion
-        year = int(str(year_str))
-        if 1900 <= year <= current_year:
-            return str(year)
-            
-        # If year is invalid, return 2024 as default
-        return "2024"
-    except (ValueError, TypeError):
-        # If conversion fails, return 2024 as default
-        return "2024"
+    # Try to find year in abstract
+    if 'abstract' in pub_data.get('bib', {}):
+        year = extract_year_from_text(pub_data['bib']['abstract'])
+        if year:
+            return year
+    
+    # Default to 2024 if no valid year found
+    return "2024"
 
 def clean_doi(doi):
     """Clean DOI by removing common prefixes."""
@@ -129,17 +149,8 @@ def create_publication_folder(pub_data, base_path):
         os.makedirs(folder_path, exist_ok=True)
         print(f"Created/verified folder: {folder_path}")
     
-        # Extract year from bib data
-        year = parse_year(pub_data['bib'].get('pub_year', ''))
-        if year == "2024":
-            # Try to find year in title or journal string
-            title_year = re.search(r'(19|20)\d{2}', title)
-            journal = pub_data['bib'].get('journal', '')
-            journal_year = re.search(r'(19|20)\d{2}', journal) if journal else None
-            if title_year:
-                year = title_year.group(0)
-            elif journal_year:
-                year = journal_year.group(0)
+        # Extract year using the enhanced parse_year function
+        year = parse_year(pub_data)
     
         # Prepare front matter
         print("Preparing front matter...")
