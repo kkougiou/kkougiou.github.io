@@ -1,15 +1,5 @@
 ---
-abstract: Although the factors shaping plant species richness patterns across the
-  islands of the central Aegean are well known, the processes driving the assembly
-  of these island communities remain unclear. To shed light on these processes, we
-  identified biogeographical modules within the phytogeographical area of the Cyclades
-  and tested for nestedness across the islands.The Cyclades, Greece.We used a network
-  approach to detect island biogeographical roles and modules, based on a large and
-  detailed database of the Greek endemic plant taxa of the Cyclades, and we tested
-  for nestedness in the island–species matrices.The Cyclades were significantly modular
-  and divided into five biogeographical modules. Three of the modules were significantly
-  nested and two displayed all four possible biogeographical roles (connectors, module
-  hubs, network hubs, peripherals). Most of the …
+abstract: ''
 authors:
 - Konstantinos Kougioumoutzis
 - Stylianos Michail Simaiakis

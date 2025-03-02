@@ -1,8 +1,12 @@
 ---
 abstract: ''
 authors:
-- Diversity Editorial Office
-date: '2022-01-01'
+- Anna-Thalassini Valli
+- Konstantinos Kougioumoutzis
+- Eleni Iliadou
+- Maria Panitsa
+- Panayiotis Trigas
+date: '2018-01-01'
 doi: ''
 featured: false
 image:
@@ -13,6 +17,6 @@ publication: ''
 publication_types:
 - '0'
 tags: []
-title: Diversity 2022 Best Paper Award
+title: NORDIC JOURNAL OF
 url_pdf: ''
 ---

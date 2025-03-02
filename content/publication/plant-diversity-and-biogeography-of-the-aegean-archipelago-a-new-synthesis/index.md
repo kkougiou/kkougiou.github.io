@@ -1,6 +1,5 @@
 ---
-abstract: '1Division of Plant Biology, Department of Biology, University of Patras,
-  GR-26504 Patras, Greece. E-mail: mpanitsa@ upatras. gr'
+abstract: ''
 authors:
 - Maria Panitsa
 - Anna Kagiampaki

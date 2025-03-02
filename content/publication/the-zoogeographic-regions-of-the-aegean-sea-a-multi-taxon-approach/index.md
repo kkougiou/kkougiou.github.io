@@ -1,9 +1,5 @@
 ---
-abstract: Already in the 19th century, naturalists such as von Humboldt and Bonpland
-  (1807), Sclater (1858) and Wallace (1876) had noticed that the globe’s biota can
-  be divided into a number of more or less distinct geographical units. Wallace (1876)
-  used existing knowledge of his time on the distribution and taxonomic relationships
-  of vertebrate families (Sclater, 1858), and divided the world into six ter-
+abstract: ''
 authors:
 - Kostas Triantis
 - Konstantinos Kougioumoutzis
