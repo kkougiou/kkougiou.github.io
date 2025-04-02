@@ -11,9 +11,9 @@ abstract: In Epirus, Greece, orchids have been traditionally harvested for the p
   their habitat (natural-anthropogenic). We also measured population size and …
 authors:
 - Martha Charitonidou
-- Kalliopi Stara
+- Kalliopi K Stara
 - Konstantinos Kougioumoutzis
-- John M Halley
+- John Maxwell Halley
 date: '2019-01-01'
 doi: ''
 featured: false
@@ -21,11 +21,11 @@ image:
   caption: ''
   focal_point: Smart
   preview_only: false
-publication: Journal of Biological Research-Thessaloniki
+publication: ''
 publication_types:
-- '2'
+- '0'
 tags: []
-title: Implications of salep collection for the conservation of the Elder-flowered
+title: Implications of salep collection for the conservation of the Elder‑flowered
   orchid (Dactylorhiza sambucina) in Epirus, Greece
 url_pdf: ''
 ---

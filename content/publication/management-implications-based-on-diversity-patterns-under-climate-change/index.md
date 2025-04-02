@@ -1,5 +1,24 @@
 ---
-abstract: ''
+abstract: In the Anthropocene era, climate change poses a great challenge in environmental
+  management and decision-making for species and habitat conservation. To support
+  decision-making, many studies exist regarding the expected vegetation changes and
+  the impacts of climate change on European plants, yet none has investigated how
+  climate change will affect the extinction risk of the entire endemic flora of an
+  island biodiversity hotspot, with intense human disturbance. Our aim is to assess,
+  in an integrated manner, the impact of climate change on the biodiversity and biogeographical
+  patterns of Crete and to provide a case-study upon which a cost-effective and climate-smart
+  conservation planning strategy might be set. We employed a variety of macroecological
+  analyses and estimated the current and future biodiversity, conservation and extinction
+  hotspots in Crete, as well as the factors that may have shaped these distribution
+  patterns. We also evaluated the effectiveness of climate refugia and the NATURA
+  2000 network (PAs) on protecting the most vulnerable species and identified the
+  taxa that should be of conservation priority based on the Evolutionary Distinct
+  and Globally Endangered (EDGE) index, during any environmental management process.
+  The highlands of Cretan mountain massifs have served as both diversity cradles and
+  museums, due to their stable climate and high topographical heterogeneity. They
+  are also identified as biodiversity hotspots, as well as areas of high conservation
+  and evolutionary value, due their high EDGE scores. Due to the ‘escalator to extinction’phenomenon
+  and the subsequent biotic homogenization …
 authors:
 - Konstantinos Kougioumoutzis
 - Ioannis P Kokkoris
