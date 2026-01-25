@@ -14,6 +14,11 @@ from PIL import Image
 from io import BytesIO
 from tenacity import retry, stop_after_attempt, wait_exponential
 
+# Set up Free Proxies to avoid Google Scholar CAPTCHA blocks
+pg = ProxyGenerator()
+pg.FreeProxies()
+scholarly.use_proxy(pg)
+
 # Constants
 CACHE_DIR = Path("scripts/scholar_cache")
 TRACKER_FILE = Path("scripts/publication_tracker.json")
