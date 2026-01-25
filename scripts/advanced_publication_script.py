@@ -14,10 +14,10 @@ from PIL import Image
 from io import BytesIO
 from tenacity import retry, stop_after_attempt, wait_exponential
 
-# Use SerpApi to reliably bypass Google Scholar CAPTCHA
-api_key = os.environ.get('SERPAPI_KEY')
+# Use ScraperAPI to reliably bypass Google Scholar CAPTCHA
+api_key = os.environ.get('SCRAPER_API_KEY')
 pg = ProxyGenerator()
-pg.SingleProxy(http=f"http://api.serpapi.com/search?api_key={api_key}", https=f"http://api.serpapi.com/search?api_key={api_key}")
+pg.ScraperAPI(api_key)
 scholarly.use_proxy(pg)
 
 # Constants
