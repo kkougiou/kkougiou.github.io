@@ -14,10 +14,12 @@ from PIL import Image
 from io import BytesIO
 from tenacity import retry, stop_after_attempt, wait_exponential
 
-# Use ScraperAPI to reliably bypass Google Scholar CAPTCHA
+# Bypass the buggy wrapper and use ScraperAPI directly as a standard proxy
 api_key = os.environ.get('SCRAPER_API_KEY')
+scraper_proxy = f"http://scraperapi:{api_key}@proxy-server.scraperapi.com:8001"
+
 pg = ProxyGenerator()
-pg.ScraperAPI(api_key)
+pg.SingleProxy(http=scraper_proxy, https=scraper_proxy)
 scholarly.use_proxy(pg)
 
 # Constants
