@@ -16,12 +16,28 @@ from tenacity import retry, stop_after_attempt, wait_exponential
 
 # Bypass the buggy wrapper and use ScraperAPI directly as a standard proxy
 api_key = os.environ.get('SCRAPER_API_KEY')
-scraper_proxy = f"http://scraperapi:{api_key}@proxy-server.scraperapi.com:8001"
 
 pg = ProxyGenerator()
-pg.SingleProxy(http=scraper_proxy, https=scraper_proxy)
-scholarly.use_proxy(pg)
-
+if api_key:
+    try:
+        # ScraperAPI integration for scholarly
+        success = pg.ScraperAPI(api_key)
+        if success:
+            print("Successfully configured ScraperAPI proxy")
+            scholarly.use_proxy(pg)
+        else:
+            print("Warning: ScraperAPI proxy setup returned False, trying FreeProxies...")
+            pg.FreeProxies()
+            scholarly.use_proxy(pg)
+    except Exception as e:
+        print(f"Warning: Could not set up ScraperAPI proxy: {e}")
+        print("Falling back to FreeProxies...")
+        pg.FreeProxies()
+        scholarly.use_proxy(pg)
+else:
+    print("No SCRAPER_API_KEY found, using FreeProxies...")
+    pg.FreeProxies()
+    scholarly.use_proxy(pg)
 # Constants
 CACHE_DIR = Path("scripts/scholar_cache")
 TRACKER_FILE = Path("scripts/publication_tracker.json")
