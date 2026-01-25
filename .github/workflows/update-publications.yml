@@ -33,7 +33,7 @@ jobs:
       - name: Update publications
         env:
           GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
-          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
         run: |
           python scripts/advanced_publication_script.py
         continue-on-error: true  # Continue even if script fails
