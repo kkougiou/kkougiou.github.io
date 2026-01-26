@@ -13,6 +13,7 @@ from PIL import Image
 from io import BytesIO
 from tenacity import retry, stop_after_attempt, wait_exponential
 import traceback
+from html import unescape
 
 # Constants
 CACHE_DIR = Path("scripts/scholar_cache")
@@ -95,6 +96,19 @@ def setup_scholarly_proxy() -> bool:
     return False
 
 
+def clean_html_text(text: str) -> str:
+    """Remove HTML tags and decode entities."""
+    if not text:
+        return ''
+    # Remove HTML tags
+    text = re.sub(r'<[^>]+>', '', text)
+    # Decode HTML entities
+    text = unescape(text)
+    # Clean up whitespace
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text
+
+
 def parse_scholar_page(html: str) -> dict:
     """Parse Google Scholar author page HTML to extract basic info."""
     author_data = {
@@ -105,21 +119,75 @@ def parse_scholar_page(html: str) -> dict:
     # Extract author name
     name_match = re.search(r'<div id="gsc_prf_in"[^>]*>([^<]+)</div>', html)
     if name_match:
-        author_data['name'] = name_match.group(1).strip()
+        author_data['name'] = clean_html_text(name_match.group(1))
     
-    # Extract publications
-    pub_pattern = r'<tr class="gsc_a_tr"[^>]*>.*?<a[^>]*href="(/citations\?[^"]*)"[^>]*>([^<]+)</a>.*?<div class="gs_gray">([^<]*)</div>.*?<div class="gs_gray">([^<]*)</div>.*?<span class="gsc_a_h gsc_a_hc gs_ibl">(\d*)</span>.*?<span[^>]*>(\d*)</span>'
+    # Find each publication row individually
+    # Split by table rows first
+    rows = re.findall(r'<tr class="gsc_a_tr"[^>]*>(.*?)</tr>', html, re.DOTALL)
     
-    for match in re.finditer(pub_pattern, html, re.DOTALL):
-        pub = {
-            'url_path': match.group(1),
-            'title': match.group(2).strip(),
-            'authors': match.group(3).strip(),
-            'venue': match.group(4).strip(),
-            'citations': match.group(5).strip() or '0',
-            'year': match.group(6).strip() or ''
-        }
-        author_data['publications'].append(pub)
+    for row in rows:
+        try:
+            pub = {}
+            
+            # Extract URL and title from the link
+            title_match = re.search(r'<a[^>]*href="(/citations\?[^"]*)"[^>]*class="gsc_a_at"[^>]*>([^<]+)</a>', row)
+            if not title_match:
+                # Try alternative pattern
+                title_match = re.search(r'<a[^>]*class="gsc_a_at"[^>]*href="(/citations\?[^"]*)"[^>]*>([^<]+)</a>', row)
+            if not title_match:
+                # Try without class specification
+                title_match = re.search(r'<a[^>]*href="(/citations\?[^"]*)"[^>]*>([^<]+)</a>', row)
+            
+            if not title_match:
+                continue
+                
+            pub['url_path'] = title_match.group(1)
+            pub['title'] = clean_html_text(title_match.group(2))
+            
+            # Extract the gray divs (authors and venue) - they appear in order
+            gray_divs = re.findall(r'<div class="gs_gray">([^<]*(?:<[^>]+>[^<]*)*)</div>', row)
+            
+            if len(gray_divs) >= 1:
+                pub['authors'] = clean_html_text(gray_divs[0])
+            else:
+                pub['authors'] = ''
+                
+            if len(gray_divs) >= 2:
+                pub['venue'] = clean_html_text(gray_divs[1])
+            else:
+                pub['venue'] = ''
+            
+            # Extract citation count - look for the citation cell
+            cite_match = re.search(r'<td class="gsc_a_c"[^>]*>.*?<a[^>]*>(\d+)</a>', row, re.DOTALL)
+            if cite_match:
+                pub['citations'] = cite_match.group(1)
+            else:
+                # Try span pattern
+                cite_match = re.search(r'class="gsc_a_ac[^"]*"[^>]*>(\d+)<', row)
+                if cite_match:
+                    pub['citations'] = cite_match.group(1)
+                else:
+                    pub['citations'] = '0'
+            
+            # Extract year - look for the year cell
+            year_match = re.search(r'<td class="gsc_a_y"[^>]*>.*?<span[^>]*>(\d{4})</span>', row, re.DOTALL)
+            if year_match:
+                pub['year'] = year_match.group(1)
+            else:
+                # Try alternative pattern
+                year_match = re.search(r'class="gsc_a_h[^"]*"[^>]*>(\d{4})<', row)
+                if year_match:
+                    pub['year'] = year_match.group(1)
+                else:
+                    pub['year'] = ''
+            
+            # Only add if we have at least a title
+            if pub.get('title'):
+                author_data['publications'].append(pub)
+                
+        except Exception as e:
+            print(f"  Warning: Failed to parse a publication row: {e}")
+            continue
     
     return author_data
 
@@ -130,43 +198,53 @@ def parse_publication_page(html: str) -> dict:
         'bib': {}
     }
     
-    # Extract title
+    # Extract title - try multiple patterns
     title_match = re.search(r'<div id="gsc_oci_title"[^>]*>.*?<a[^>]*>([^<]+)</a>', html, re.DOTALL)
     if not title_match:
-        title_match = re.search(r'<div id="gsc_oci_title"[^>]*>([^<]+)</div>', html)
+        title_match = re.search(r'<div id="gsc_oci_title"[^>]*>\s*([^<]+?)\s*</div>', html)
+    if not title_match:
+        title_match = re.search(r'id="gsc_oci_title"[^>]*>([^<]+)', html)
     if title_match:
-        pub_data['bib']['title'] = title_match.group(1).strip()
+        pub_data['bib']['title'] = clean_html_text(title_match.group(1))
     
-    # Extract fields from the table
-    field_pattern = r'<div class="gsc_oci_field">([^<]+)</div>\s*<div class="gsc_oci_value"[^>]*>([^<]+(?:<[^>]+>[^<]*</[^>]+>)*[^<]*)</div>'
+    # Extract fields from the table - look for field/value pairs
+    # Pattern: field div followed by value div
+    field_pattern = r'<div class="gsc_oci_field"[^>]*>([^<]+)</div>\s*<div class="gsc_oci_value"[^>]*>(.*?)</div>'
     
     for match in re.finditer(field_pattern, html, re.DOTALL):
-        field_name = match.group(1).strip().lower()
-        field_value = re.sub(r'<[^>]+>', '', match.group(2)).strip()
+        field_name = clean_html_text(match.group(1)).lower()
+        field_value = clean_html_text(match.group(2))
+        
+        if not field_value:
+            continue
         
         if 'author' in field_name:
+            # Convert comma-separated to "and" separated for BibTeX
             pub_data['bib']['author'] = field_value.replace(', ', ' and ')
-        elif 'journal' in field_name:
+        elif field_name == 'journal':
             pub_data['bib']['journal'] = field_value
-        elif 'volume' in field_name:
+        elif field_name == 'volume':
             pub_data['bib']['volume'] = field_value
-        elif 'issue' in field_name:
+        elif field_name == 'issue':
             pub_data['bib']['number'] = field_value
-        elif 'pages' in field_name:
+        elif field_name == 'pages':
             pub_data['bib']['pages'] = field_value
-        elif 'publisher' in field_name:
+        elif field_name == 'publisher':
             pub_data['bib']['publisher'] = field_value
-        elif 'publication date' in field_name or 'year' in field_name:
+        elif 'publication date' in field_name:
             pub_data['bib']['pub_year'] = field_value
-        elif 'description' in field_name or 'abstract' in field_name:
+        elif field_name == 'description':
             pub_data['bib']['abstract'] = field_value
-        elif 'book' in field_name:
+        elif field_name == 'book':
             pub_data['bib']['booktitle'] = field_value
-        elif 'conference' in field_name:
+        elif field_name == 'conference':
             pub_data['bib']['booktitle'] = field_value
+        elif 'total citations' in field_name:
+            # Skip this field
+            pass
     
-    # Extract links
-    link_pattern = r'<div class="gsc_oci_title_ggi"><a[^>]*href="([^"]+)"[^>]*>'
+    # Extract external link (PDF, publisher URL, etc.)
+    link_pattern = r'<div class="gsc_oci_title_ggi">\s*<a[^>]*href="([^"]+)"'
     link_match = re.search(link_pattern, html)
     if link_match:
         pub_data['pub_url'] = link_match.group(1)
@@ -225,9 +303,14 @@ def get_publications_via_scraperapi(scholar_id: str) -> List[dict]:
     print(f"\nTotal publications found across all pages: {len(all_basic_pubs)}")
     
     if not all_basic_pubs:
-        print("No publications found in HTML. Dumping sample for debugging...")
+        print("No publications found in HTML.")
+        # Save HTML for debugging
         if response:
-            print(response.text[:2000])
+            debug_file = CACHE_DIR / "debug_author_page.html"
+            CACHE_DIR.mkdir(parents=True, exist_ok=True)
+            with open(debug_file, 'w', encoding='utf-8') as f:
+                f.write(response.text)
+            print(f"Saved HTML to {debug_file} for debugging")
         return []
     
     # Fetch details for each publication
@@ -243,14 +326,14 @@ def get_publications_via_scraperapi(scholar_id: str) -> List[dict]:
             if response and response.ok:
                 pub_data = parse_publication_page(response.text)
                 
-                # Merge with basic data
+                # Merge with basic data (use detailed data if available, fall back to basic)
                 if not pub_data['bib'].get('title'):
                     pub_data['bib']['title'] = pub_basic['title']
                 if not pub_data['bib'].get('author'):
-                    pub_data['bib']['author'] = pub_basic['authors']
-                if not pub_data['bib'].get('pub_year'):
+                    pub_data['bib']['author'] = pub_basic['authors'].replace(', ', ' and ')
+                if not pub_data['bib'].get('pub_year') and pub_basic.get('year'):
                     pub_data['bib']['pub_year'] = pub_basic['year']
-                if not pub_data['bib'].get('journal'):
+                if not pub_data['bib'].get('journal') and not pub_data['bib'].get('booktitle'):
                     pub_data['bib']['journal'] = pub_basic['venue']
                 
                 publications.append(pub_data)
@@ -260,9 +343,9 @@ def get_publications_via_scraperapi(scholar_id: str) -> List[dict]:
                 pub_data = {
                     'bib': {
                         'title': pub_basic['title'],
-                        'author': pub_basic['authors'],
+                        'author': pub_basic['authors'].replace(', ', ' and '),
                         'journal': pub_basic['venue'],
-                        'pub_year': pub_basic['year']
+                        'pub_year': pub_basic.get('year', '')
                     }
                 }
                 publications.append(pub_data)
@@ -270,13 +353,14 @@ def get_publications_via_scraperapi(scholar_id: str) -> List[dict]:
                 
         except Exception as e:
             print(f"  ✗ Error: {e}")
+            traceback.print_exc()
             # Still add with basic info
             pub_data = {
                 'bib': {
                     'title': pub_basic['title'],
-                    'author': pub_basic['authors'],
+                    'author': pub_basic['authors'].replace(', ', ' and '),
                     'journal': pub_basic['venue'],
-                    'pub_year': pub_basic['year']
+                    'pub_year': pub_basic.get('year', '')
                 }
             }
             publications.append(pub_data)
@@ -410,22 +494,15 @@ def parse_year(pub_data: dict) -> str:
     current_year = datetime.now().year
     bib = pub_data.get('bib', {})
     
-    # Try pub_year field
+    # Try pub_year field first
     if 'pub_year' in bib:
-        year_match = re.search(r'(19|20)\d{2}', str(bib['pub_year']))
+        pub_year = str(bib['pub_year'])
+        # Extract just the year (first 4 digits that look like a year)
+        year_match = re.search(r'(19|20)\d{2}', pub_year)
         if year_match:
             year = int(year_match.group(0))
             if 1900 <= year <= current_year:
                 return str(year)
-    
-    # Try other fields
-    for field in ['title', 'journal', 'abstract']:
-        if field in bib:
-            years = re.findall(r'(20\d{2}|19\d{2})', str(bib[field]))
-            if years:
-                for year in sorted([int(y) for y in years], reverse=True):
-                    if year <= current_year:
-                        return str(year)
     
     return str(current_year)
 
@@ -444,15 +521,17 @@ def clean_doi(url: str) -> str:
 def determine_publication_type(pub_data: dict) -> str:
     bib = pub_data.get('bib', {})
     
-    if 'journal' in bib:
-        return '2'  # Journal article
-    elif 'booktitle' in bib:
-        booktitle = bib.get('booktitle', '').lower()
-        if 'conference' in booktitle or 'proceedings' in booktitle:
+    journal = bib.get('journal', '').lower()
+    booktitle = bib.get('booktitle', '').lower()
+    
+    if booktitle:
+        if 'conference' in booktitle or 'proceedings' in booktitle or 'symposium' in booktitle:
             return '1'  # Conference paper
         return '6'  # Book section
-    elif 'arxiv' in str(bib.get('journal', '')).lower():
-        return '3'  # Preprint
+    elif journal:
+        if 'arxiv' in journal:
+            return '3'  # Preprint
+        return '2'  # Journal article
     else:
         return '0'  # Uncategorized
 
@@ -501,9 +580,12 @@ def create_publication_folder(pub_data: dict, base_path: str, tracker: Publicati
         folder_path = Path(base_path) / 'content' / 'publication' / folder_name
         folder_path.mkdir(parents=True, exist_ok=True)
         
-        # Parse authors
+        # Parse authors - split by " and "
         author_str = bib.get('author', '')
-        authors = [a.strip() for a in author_str.split(' and ') if a.strip()] if author_str else []
+        if author_str:
+            authors = [a.strip() for a in author_str.split(' and ') if a.strip()]
+        else:
+            authors = []
         
         # Prepare front matter
         front_matter = {
@@ -555,6 +637,7 @@ def create_publication_folder(pub_data: dict, base_path: str, tracker: Publicati
         
     except Exception as e:
         print(f"  ✗ Error: {e}")
+        traceback.print_exc()
         return False
 
 
