@@ -175,31 +175,65 @@ def parse_publication_page(html: str) -> dict:
 
 
 def get_publications_via_scraperapi(scholar_id: str) -> List[dict]:
-    """Fetch publications using ScraperAPI directly."""
+    """Fetch publications using ScraperAPI directly with pagination support."""
     print(f"Fetching publications via ScraperAPI for Scholar ID: {scholar_id}")
     
-    # Fetch author page
-    author_url = f"https://scholar.google.com/citations?user={scholar_id}&hl=en&cstart=0&pagesize=100"
-    print(f"Fetching author page...")
+    all_basic_pubs = []
+    author_name = ''
+    cstart = 0
+    page_size = 100  # Request 100, but Scholar usually returns ~20
+    max_pages = 10   # Safety limit: 10 pages * ~20 pubs = ~200 max publications
     
-    response = fetch_with_scraperapi(author_url)
-    if not response or not response.ok:
-        print(f"Failed to fetch author page: {response.status_code if response else 'No response'}")
-        return []
+    # Fetch all pages of publications
+    for page_num in range(max_pages):
+        author_url = f"https://scholar.google.com/citations?user={scholar_id}&hl=en&cstart={cstart}&pagesize={page_size}"
+        print(f"Fetching page {page_num + 1} (cstart={cstart})...")
+        
+        response = fetch_with_scraperapi(author_url)
+        if not response or not response.ok:
+            print(f"Failed to fetch page {page_num + 1}: {response.status_code if response else 'No response'}")
+            break
+        
+        author_data = parse_scholar_page(response.text)
+        
+        # Get author name from first page
+        if page_num == 0:
+            author_name = author_data.get('name', 'Unknown')
+            print(f"Found author: {author_name}")
+        
+        page_pubs = author_data['publications']
+        print(f"  Found {len(page_pubs)} publications on page {page_num + 1}")
+        
+        if not page_pubs:
+            # No more publications
+            print(f"  No more publications found. Stopping pagination.")
+            break
+        
+        all_basic_pubs.extend(page_pubs)
+        
+        # Check if we got fewer than expected (last page)
+        if len(page_pubs) < 20:
+            print(f"  Last page reached (fewer than 20 results).")
+            break
+        
+        # Move to next page
+        cstart += len(page_pubs)
+        
+        # Rate limiting between pages
+        time.sleep(2)
     
-    author_data = parse_scholar_page(response.text)
-    print(f"Found author: {author_data.get('name', 'Unknown')}")
-    print(f"Found {len(author_data['publications'])} publications")
+    print(f"\nTotal publications found across all pages: {len(all_basic_pubs)}")
     
-    if not author_data['publications']:
+    if not all_basic_pubs:
         print("No publications found in HTML. Dumping sample for debugging...")
-        print(response.text[:2000])
+        if response:
+            print(response.text[:2000])
         return []
     
     # Fetch details for each publication
     publications = []
-    for i, pub_basic in enumerate(author_data['publications']):
-        print(f"[{i+1}/{len(author_data['publications'])}] Fetching: {pub_basic['title'][:50]}...")
+    for i, pub_basic in enumerate(all_basic_pubs):
+        print(f"[{i+1}/{len(all_basic_pubs)}] Fetching: {pub_basic['title'][:50]}...")
         
         try:
             pub_url = f"https://scholar.google.com{pub_basic['url_path']}"
