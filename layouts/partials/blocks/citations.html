@@ -1,0 +1,74 @@
+{{/*
+  Custom landing-page block: research-impact metrics.
+  Reads data/citations.json (regenerated from OpenAlex by
+  scripts/generate_publications_openalex.py) and renders a stat row.
+*/}}
+{{ $block := .block }}
+{{ $data := site.Data.citations }}
+{{ $title := "Research Impact" }}
+{{ with $block.content.title }}{{ $title = . }}{{ end }}
+
+<section id="{{ with $block.id }}{{ . }}{{ else }}metrics{{ end }}" class="home-section wg-citations">
+  <div class="container">
+    {{ with $title }}<h1 class="text-center mb-3">{{ . }}</h1>{{ end }}
+    {{ if $data }}
+    <div class="citations-grid">
+      <div class="citations-stat">
+        <div class="citations-number">{{ lang.NumFmt 0 $data.cited_by_count }}</div>
+        <div class="citations-label">Citations</div>
+      </div>
+      <div class="citations-stat">
+        <div class="citations-number">{{ $data.h_index }}</div>
+        <div class="citations-label">h-index</div>
+      </div>
+      <div class="citations-stat">
+        <div class="citations-number">{{ $data.i10_index }}</div>
+        <div class="citations-label">i10-index</div>
+      </div>
+      <div class="citations-stat">
+        <div class="citations-number">{{ $data.works_count }}</div>
+        <div class="citations-label">Publications</div>
+      </div>
+    </div>
+    <p class="citations-caption text-center">
+      Source:
+      <a href="https://openalex.org/authors/orcid:0000-0002-6938-3025" target="_blank" rel="noopener">OpenAlex</a>
+      &middot;
+      <a href="https://scholar.google.gr/citations?user=CceadYwAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+      {{ with $data.updated }}&middot; updated {{ . }}{{ end }}
+    </p>
+    {{ else }}
+    <p class="text-center text-muted">Citation metrics are not available yet.</p>
+    {{ end }}
+  </div>
+</section>
+
+<style>
+  .wg-citations .citations-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem 2.5rem;
+    margin: 1.5rem 0 1rem;
+  }
+  .wg-citations .citations-stat {
+    text-align: center;
+    min-width: 7rem;
+  }
+  .wg-citations .citations-number {
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--bs-primary, #0077b6);
+  }
+  .wg-citations .citations-label {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.75;
+  }
+  .wg-citations .citations-caption {
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+</style>

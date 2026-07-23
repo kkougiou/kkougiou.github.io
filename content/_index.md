@@ -11,6 +11,12 @@ sections:
       title: Biography
       # Choose a user profile to display (a folder name within `content/authors/`)
       username: admin
+  - block: citations
+    id: metrics
+    content:
+      title: Research Impact
+    design:
+      columns: '1'
   - block: collection
     id: featured
     content:
