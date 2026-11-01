@@ -1,0 +1,59 @@
+{
+ "extinction-risk": [
+  "ok https://pub.mdpi-res.com/biology/biology-10-00195/article_deploy/html/images/biology-10-00195-g001.png 6744884",
+  "ok https://pub.mdpi-res.com/biology/biology-10-00195/article_deploy/html/images/biology-10-00195-g002.png 2587267",
+  "ok https://pub.mdpi-res.com/biology/biology-10-00195/article_deploy/html/images/biology-10-00195-g003.png 711820",
+  "ok https://pub.mdpi-res.com/biology/biology-10-00195/article_deploy/html/images/biology-10-00195-g004.png 378056",
+  "ok https://pub.mdpi-res.com/biology/biology-10-00195/article_deploy/html/images/biology-10-00195-g005.png 553471",
+  "ok https://pub.mdpi-res.com/biology/biology-10-00195/article_deploy/html/images/biology-10-00195-g006.png 6686171",
+  "ok https://pub.mdpi-res.com/biology/biology-10-00195/article_deploy/html/images/biology-10-00195-g007.png 6739343",
+  "ok https://pub.mdpi-res.com/biology/biology-10-00195/article_deploy/html/images/biology-10-00195-g008.png 6518765",
+  "ok https://pub.mdpi-res.com/biology/biology-10-00195/article_deploy/html/images/biology-10-00195-g009.png 1154545",
+  "fail https://pub.mdpi-res.com/biology/biology-10-00195/article_deploy/html/images/biology-10-00195-g010.png HTTP Error 404: Not Found",
+  "fail https://pub.mdpi-res.com/biology/biology-10-00195/article_deploy/html/images/biology-10-00195-g010.jpg HTTP Error 404: Not Found",
+  "fail https://pub.mdpi-res.com/biology/biology-10-00195/article_deploy/html/images/biology-10-00195-g011.png HTTP Error 404: Not Found",
+  "fail https://pub.mdpi-res.com/biology/biology-10-00195/article_deploy/html/images/biology-10-00195-g011.jpg HTTP Error 404: Not Found",
+  "fail https://pub.mdpi-res.com/biology/biology-10-00195/article_deploy/html/images/biology-10-00195-g012.png HTTP Error 404: Not Found",
+  "fail https://pub.mdpi-res.com/biology/biology-10-00195/article_deploy/html/images/biology-10-00195-g012.jpg HTTP Error 404: Not Found"
+ ],
+ "endemism-centres": [
+  "ok https://pub.mdpi-res.com/biology/biology-10-00072/article_deploy/html/images/biology-10-00072-g001.png 4020350",
+  "ok https://pub.mdpi-res.com/biology/biology-10-00072/article_deploy/html/images/biology-10-00072-g002.png 1157540",
+  "ok https://pub.mdpi-res.com/biology/biology-10-00072/article_deploy/html/images/biology-10-00072-g003.png 1632368",
+  "ok https://pub.mdpi-res.com/biology/biology-10-00072/article_deploy/html/images/biology-10-00072-g004.png 570646",
+  "ok https://pub.mdpi-res.com/biology/biology-10-00072/article_deploy/html/images/biology-10-00072-g005.png 1766972",
+  "ok https://pub.mdpi-res.com/biology/biology-10-00072/article_deploy/html/images/biology-10-00072-g006.png 466920",
+  "ok https://pub.mdpi-res.com/biology/biology-10-00072/article_deploy/html/images/biology-10-00072-g007.png 1019316",
+  "ok https://pub.mdpi-res.com/biology/biology-10-00072/article_deploy/html/images/biology-10-00072-g008.png 100053",
+  "ok https://pub.mdpi-res.com/biology/biology-10-00072/article_deploy/html/images/biology-10-00072-g009.png 93256",
+  "ok https://pub.mdpi-res.com/biology/biology-10-00072/article_deploy/html/images/biology-10-00072-g010.png 2483144",
+  "fail https://pub.mdpi-res.com/biology/biology-10-00072/article_deploy/html/images/biology-10-00072-g011.png HTTP Error 404: Not Found",
+  "fail https://pub.mdpi-res.com/biology/biology-10-00072/article_deploy/html/images/biology-10-00072-g011.jpg HTTP Error 404: Not Found",
+  "fail https://pub.mdpi-res.com/biology/biology-10-00072/article_deploy/html/images/biology-10-00072-g012.png HTTP Error 404: Not Found",
+  "fail https://pub.mdpi-res.com/biology/biology-10-00072/article_deploy/html/images/biology-10-00072-g012.jpg HTTP Error 404: Not Found"
+ ],
+ "crete-diversity": [
+  "ok https://pub.mdpi-res.com/diversity/diversity-12-00270/article_deploy/html/images/diversity-12-00270-g001.png 2528155",
+  "ok https://pub.mdpi-res.com/diversity/diversity-12-00270/article_deploy/html/images/diversity-12-00270-g002.png 2257450",
+  "ok https://pub.mdpi-res.com/diversity/diversity-12-00270/article_deploy/html/images/diversity-12-00270-g003.png 1650979",
+  "ok https://pub.mdpi-res.com/diversity/diversity-12-00270/article_deploy/html/images/diversity-12-00270-g004.png 1405116",
+  "ok https://pub.mdpi-res.com/diversity/diversity-12-00270/article_deploy/html/images/diversity-12-00270-g005.png 1397741",
+  "ok https://pub.mdpi-res.com/diversity/diversity-12-00270/article_deploy/html/images/diversity-12-00270-g006.png 1292040",
+  "ok https://pub.mdpi-res.com/diversity/diversity-12-00270/article_deploy/html/images/diversity-12-00270-g007.png 334028",
+  "fail https://pub.mdpi-res.com/diversity/diversity-12-00270/article_deploy/html/images/diversity-12-00270-g008.png HTTP Error 404: Not Found",
+  "fail https://pub.mdpi-res.com/diversity/diversity-12-00270/article_deploy/html/images/diversity-12-00270-g008.jpg HTTP Error 404: Not Found",
+  "fail https://pub.mdpi-res.com/diversity/diversity-12-00270/article_deploy/html/images/diversity-12-00270-g009.png HTTP Error 404: Not Found",
+  "fail https://pub.mdpi-res.com/diversity/diversity-12-00270/article_deploy/html/images/diversity-12-00270-g009.jpg HTTP Error 404: Not Found",
+  "fail https://pub.mdpi-res.com/diversity/diversity-12-00270/article_deploy/html/images/diversity-12-00270-g010.png HTTP Error 404: Not Found",
+  "fail https://pub.mdpi-res.com/diversity/diversity-12-00270/article_deploy/html/images/diversity-12-00270-g010.jpg HTTP Error 404: Not Found",
+  "fail https://pub.mdpi-res.com/diversity/diversity-12-00270/article_deploy/html/images/diversity-12-00270-g011.png HTTP Error 404: Not Found",
+  "fail https://pub.mdpi-res.com/diversity/diversity-12-00270/article_deploy/html/images/diversity-12-00270-g011.jpg HTTP Error 404: Not Found",
+  "fail https://pub.mdpi-res.com/diversity/diversity-12-00270/article_deploy/html/images/diversity-12-00270-g012.png HTTP Error 404: Not Found",
+  "fail https://pub.mdpi-res.com/diversity/diversity-12-00270/article_deploy/html/images/diversity-12-00270-g012.jpg HTTP Error 404: Not Found"
+ ],
+ "network-biogeography": [
+  "https://core.ac.uk/works/138391682 fail HTTP Error 403: Forbidden",
+  "https://core.ac.uk/search?q=doi%3A%2210.1111%2Fjbi.12920%22 fail HTTP Error 403: Forbidden",
+  "https://onlinelibrary.wiley.com/doi/full/10.1111/jbi.12920 fail HTTP Error 403: Forbidden"
+ ]
+}
