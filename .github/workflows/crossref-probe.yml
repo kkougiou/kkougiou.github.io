@@ -5,17 +5,18 @@ on:
 permissions:
   contents: write
 jobs:
-  probe:
+  counts:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with: {ref: site-refresh}
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - run: pip install pyyaml
-      - run: python scripts/crossref_publications.py enrich --out scripts/crossref_dump.json
+      - run: python scripts/crossref_publications.py counts
       - run: |
           git config user.name 'github-actions'
           git config user.email 'github-actions@users.noreply.github.com'
-          git add scripts/crossref_dump.json
-          git commit -m "crossref dump [skip ci]"
-          git push
+          git add content/publication data/citations.yaml
+          git commit -m "Add citation counts from OpenAlex"
+          git push origin HEAD:site-refresh
