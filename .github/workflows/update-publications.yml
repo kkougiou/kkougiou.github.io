@@ -1,5 +1,6 @@
-# Checks Crossref once a month for new papers by Kougioumoutzis that are not on
-# the site yet. New papers are added as hidden drafts in a pull request, so
+# Once a month: (1) refreshes the "Cited by" counts from OpenAlex and publishes
+# them straight away; (2) checks Crossref for new papers by Kougioumoutzis that
+# are not on the site yet. New papers are added as hidden drafts in a pull request, so
 # nothing is published until you review the PR, remove `draft: true` from the
 # ones you want, and merge.
 #
@@ -25,6 +26,17 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r requirements.txt
+      - name: Refresh citation counts (OpenAlex)
+        run: python scripts/crossref_publications.py counts
+      - name: Commit citation counts
+        run: |
+          git config user.name 'github-actions'
+          git config user.email 'github-actions@users.noreply.github.com'
+          git add content/publication data/citations.yaml
+          if ! git diff --cached --quiet; then
+            git commit -m "Update citation counts from OpenAlex"
+            git push
+          fi
       - name: Look for new papers on Crossref
         run: python scripts/crossref_publications.py discover --write
       - name: Open a pull request with any new papers

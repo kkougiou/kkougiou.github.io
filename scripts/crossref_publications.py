@@ -15,6 +15,9 @@ Usage
   # until you review them and delete the `draft` line)
   python scripts/crossref_publications.py discover --write
 
+  # Refresh citation counts (OpenAlex) for every paper with a DOI
+  python scripts/crossref_publications.py counts
+
   # Dump Crossref metadata for every title currently on the site (JSON)
   python scripts/crossref_publications.py enrich --out scripts/crossref_dump.json
 """
@@ -278,6 +281,37 @@ def cmd_enrich(args):
     print(f"wrote {args.out}")
 
 
+def cmd_counts(args):
+    """Write `citations: N` (OpenAlex cited_by_count) into each record with a DOI."""
+    import datetime
+    import yaml
+    total, changed = 0, 0
+    for f in sorted(PUB_DIR.glob("*/index.md")):
+        text = f.read_text(encoding="utf-8")
+        _, head, body = text.split("---", 2)
+        fm = yaml.safe_load(head) or {}
+        doi = str(fm.get("doi") or "").strip()
+        if not doi:
+            continue
+        try:
+            work = json.loads(http_get("https://api.openalex.org/works/doi:" + urllib.parse.quote(doi)))
+        except Exception as e:  # noqa: BLE001
+            print(f"  no OpenAlex record for {doi}: {e}", file=sys.stderr)
+            continue
+        n = int(work.get("cited_by_count") or 0)
+        total += n
+        if fm.get("citations") != n:
+            fm["citations"] = n
+            f.write_text("---\n" + yaml.safe_dump(fm, allow_unicode=True, sort_keys=False, width=1000)
+                         + "---" + body, encoding="utf-8")
+            changed += 1
+        time.sleep(0.2)
+    meta = ROOT / "data" / "citations.yaml"
+    meta.write_text(f"source: OpenAlex\nupdated: '{datetime.date.today().isoformat()}'\ntotal: {total}\n",
+                    encoding="utf-8")
+    print(f"updated {changed} record(s); {total} citations in total")
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -286,10 +320,11 @@ def main():
     a.add_argument("--draft", action="store_true", help="mark as draft (hidden) for review")
     d = sub.add_parser("discover", help="list Crossref works not yet on the site")
     d.add_argument("--write", action="store_true", help="create draft bundles for them")
+    sub.add_parser("counts", help="refresh citation counts from OpenAlex")
     e = sub.add_parser("enrich", help="dump Crossref metadata for current titles")
     e.add_argument("--out", default="scripts/crossref_dump.json")
     args = p.parse_args()
-    {"add": cmd_add, "discover": cmd_discover, "enrich": cmd_enrich}[args.cmd](args)
+    {"add": cmd_add, "discover": cmd_discover, "enrich": cmd_enrich, "counts": cmd_counts}[args.cmd](args)
 
 
 if __name__ == "__main__":

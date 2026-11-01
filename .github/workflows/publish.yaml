@@ -9,6 +9,11 @@ on:
     branches: ["main"]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
+  # Redeploy after the monthly citation-count refresh (pushes made by Actions
+  # do not trigger the push event above).
+  workflow_run:
+    workflows: ["Update Publications"]
+    types: [completed]
 
 # Provide permission to clone the repo and deploy it to GitHub Pages
 permissions:

@@ -90,11 +90,18 @@ social:
     icon_pack: ai
     link: https://scholar.google.gr/citations?user=CceadYwAAAAJ&hl=en
     label: Google Scholar
-  # TODO: add your ORCID iD and uncomment
-  # - icon: orcid
-  #   icon_pack: ai
-  #   link: https://orcid.org/0000-0000-0000-0000
-  #   label: ORCID
+  - icon: orcid
+    icon_pack: ai
+    link: https://orcid.org/0000-0002-6938-3025
+    label: ORCID
+  - icon: researchgate
+    icon_pack: ai
+    link: https://www.researchgate.net/profile/Konstantinos-Kougioumoutzis
+    label: ResearchGate
+  - icon: bluesky
+    icon_pack: kk
+    link: https://bsky.app/profile/kostaskou.bsky.social
+    label: Bluesky
   - icon: github
     icon_pack: fab
     link: https://github.com/kkougiou
@@ -130,4 +137,9 @@ He has described or co-described three plant taxa new to science, rediscovered t
 
 ### Collaborators
 
-[Panayotis Dimopoulos](https://scholar.google.gr/citations?user=1WMOcPMAAAAJ&hl=en) and [Maria Panitsa](https://scholar.google.gr/citations?user=JLeOBm0AAAAJ&hl=en) ([Botany Lab](http://botanylab.upatras.gr/), University of Patras) · [Panayiotis Trigas](https://scholar.google.gr/citations?user=L5-ME_cAAAAJ&hl=en) ([Agricultural University of Athens](http://efp.aua.gr/en)) · [John Halley](https://www.john-halley.com/) (EcoLab, University of Ioannina) · [Vassiliki Kati](https://bc.lab.uoi.gr/en/who-we-are/vassiliki-kati/) ([Biodiversity Conservation Lab](https://bc.lab.uoi.gr/en/), University of Ioannina) · [Theodora Petanidou](https://geography.aegean.gr/ppl/index_en.php?content=0&bio=tpet) (University of the Aegean) · [Kostas A. Triantis](https://scholar.google.gr/citations?user=jTzQHXwAAAAJ&hl=en) and [Aristeidis Parmakelis](https://scholar.google.gr/citations?user=eaNpqN8AAAAJ&hl=en) (National and Kapodistrian University of Athens)
+- [Prof. Panayotis Dimopoulos](https://scholar.google.gr/citations?user=1WMOcPMAAAAJ&hl=en) and [Prof. Maria Panitsa](https://scholar.google.gr/citations?user=JLeOBm0AAAAJ&hl=en), [Botany Lab](http://botanylab.upatras.gr/), University of Patras
+- [Prof. Panayiotis Trigas](https://scholar.google.gr/citations?user=L5-ME_cAAAAJ&hl=en), [Department of Crop Science](http://efp.aua.gr/en), Agricultural University of Athens
+- [Prof. John Halley](https://www.john-halley.com/), [EcoLab](https://twitter.com/EcoLab_BET), University of Ioannina
+- [Prof. Vassiliki Kati](https://bc.lab.uoi.gr/en/who-we-are/vassiliki-kati/), [Biodiversity Conservation Lab](https://bc.lab.uoi.gr/en/), University of Ioannina
+- [Prof. Theodora Petanidou](https://geography.aegean.gr/ppl/index_en.php?content=0&bio=tpet), [Biogeography & Ecology Lab](https://bioecolab-aegean.blogspot.com/2013/11/theodora-petanidou.html), University of the Aegean
+- [Prof. Kostas A. Triantis](https://scholar.google.gr/citations?user=jTzQHXwAAAAJ&hl=en) and [Prof. Aristeidis Parmakelis](https://scholar.google.gr/citations?user=eaNpqN8AAAAJ&hl=en), [UAMECO lab](https://sites.google.com/site/uameco/home), National and Kapodistrian University of Athens
