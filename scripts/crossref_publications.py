@@ -335,12 +335,21 @@ def _write_fm(path, fm, body):
 
 
 def jats_to_text(s):
-    s = re.sub(r"<jats:title>.*?</jats:title>", "", s or "", flags=re.S)
-    s = re.sub(r"</jats:p>\s*<jats:p>", "\n\n", s)
+    """Crossref JATS abstract -> Markdown. Section titles of structured abstracts
+    (Aim, Location, Methods, ...) become bold labels; a leading 'Abstract' title is dropped."""
+    s = s or ""
+    s = re.sub(r"<jats:title>\s*(Abstract|ABSTRACT|Summary)\s*</jats:title>", "", s)
+    s = re.sub(r"<jats:title>(.*?)</jats:title>\s*<jats:p>",
+               lambda m: "<jats:p>**" + re.sub(r"<[^>]+>", "", m.group(1)).strip().rstrip(".:") + ".** ", s, flags=re.S)
     s = re.sub(r"<jats:italic>(.*?)</jats:italic>", r"*\1*", s, flags=re.S)
-    s = re.sub(r"<[^>]+>", "", s)
-    s = html.unescape(s)
-    return re.sub(r"[ \t]+", " ", s).strip()
+    paras = re.findall(r"<jats:p>(.*?)</jats:p>", s, flags=re.S) or [s]
+    out = []
+    for p in paras:
+        t = html.unescape(re.sub(r"<[^>]+>", "", p))
+        t = re.sub(r"\s+", " ", t).strip()
+        if t:
+            out.append(t)
+    return "\n\n".join(out)
 
 
 def openalex_abstract(inv):
@@ -359,7 +368,7 @@ def cmd_abstracts(args):
     for f in sorted(PUB_DIR.glob("*/index.md")):
         fm, body = _split_fm(f)
         doi = str(fm.get("doi") or "").strip()
-        if not doi or str(fm.get("abstract") or "").strip():
+        if not doi or (str(fm.get("abstract") or "").strip() and not args.refresh):
             continue
         text = ""
         try:
@@ -373,6 +382,7 @@ def cmd_abstracts(args):
             except Exception as e:  # noqa: BLE001
                 print(f"  openalex {doi}: {e}", file=sys.stderr)
         text = re.sub(r"^(Abstract|ABSTRACT)[:.]?\s*", "", text)
+        text = "\n\n".join(re.sub(r"\s+", " ", p).strip() for p in re.split(r"\n\s*\n", text) if p.strip())
         if text:
             fm["abstract"] = text
             _write_fm(f, fm, body)
@@ -412,7 +422,8 @@ def main():
     d = sub.add_parser("discover", help="list Crossref works not yet on the site")
     d.add_argument("--write", action="store_true", help="create draft bundles for them")
     sub.add_parser("counts", help="refresh citation counts from OpenAlex")
-    sub.add_parser("abstracts", help="fill in missing abstracts")
+    ab = sub.add_parser("abstracts", help="fill in missing abstracts")
+    ab.add_argument("--refresh", action="store_true", help="also replace existing abstracts")
     sub.add_parser("metrics", help="refresh profile metrics (OpenAlex)")
     e = sub.add_parser("enrich", help="dump Crossref metadata for current titles")
     e.add_argument("--out", default="scripts/crossref_dump.json")
