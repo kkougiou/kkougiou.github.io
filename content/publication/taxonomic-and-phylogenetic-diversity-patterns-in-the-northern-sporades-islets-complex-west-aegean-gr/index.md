@@ -1,5 +1,5 @@
 ---
-abstract: ''
+title: Taxonomic and phylogenetic diversity patterns in the Northern Sporades islets complex (West Aegean, Greece)
 authors:
 - E Iliadou
 - I Bazos
@@ -7,22 +7,14 @@ authors:
 - E Karadimou
 - I Kokkoris
 - M Panitsa
-- '...Plant Systematics'
-- Evolution 306 (2)
-- 1-17
-- '2020'
+- T Raus
+- A Strid
+- P Dimopoulos
 date: '2020-01-01'
-doi: ''
-featured: false
-image:
-  caption: ''
-  focal_point: Smart
-  preview_only: false
-publication: ''
 publication_types:
-- '0'
-tags: []
-title: Taxonomic and phylogenetic diversity patterns in the Northern Sporades islets
-  complex (West Aegean, Greece)
-url_pdf: ''
+- article-journal
+publication: '*Plant Systematics and Evolution*, 306(2), 28'
+doi: 10.1007/s00606-020-01660-0
+featured: false
+abstract: ''
 ---

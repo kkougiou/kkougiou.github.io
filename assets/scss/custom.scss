@@ -1,0 +1,4 @@
+// Keep the long site name from colliding with the navbar icons on phones.
+@media (max-width: 575.98px) {
+  .navbar-brand { font-size: 1rem; }
+}

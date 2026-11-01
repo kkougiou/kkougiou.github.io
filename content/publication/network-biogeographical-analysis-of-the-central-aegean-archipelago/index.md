@@ -1,22 +1,14 @@
 ---
-abstract: ''
+title: Network biogeographical analysis of the central Aegean archipelago
 authors:
 - K Kougioumoutzis
 - SM Simaiakis
-- A TiniakouJournal of Biogeography 41 (10)
-- 1848-1858
-- '2014'
+- A Tiniakou
 date: '2014-01-01'
-doi: ''
-featured: false
-image:
-  caption: ''
-  focal_point: Smart
-  preview_only: false
-publication: ''
 publication_types:
-- '0'
-tags: []
-title: Network biogeographical analysis of the central Aegean archipelago
-url_pdf: ''
+- article-journal
+publication: '*Journal of Biogeography*, 41(10), 1848-1858'
+doi: 10.1111/jbi.12342
+featured: false
+abstract: ''
 ---

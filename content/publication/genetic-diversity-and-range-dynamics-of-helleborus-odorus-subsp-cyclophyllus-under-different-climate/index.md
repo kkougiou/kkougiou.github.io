@@ -1,25 +1,17 @@
 ---
-abstract: ''
+title: Genetic Diversity and Range Dynamics of Helleborus odorus subsp. cyclophyllus under Different Climate Change Scenarios
+title_md: Genetic Diversity and Range Dynamics of *Helleborus odorus* subsp. *cyclophyllus* under Different Climate Change Scenarios
 authors:
 - G Fassou
 - K Kougioumoutzis
 - G Iatrou
 - P Trigas
-- V PapasotiropoulosForests 11 (6)
-- '620'
-- '2020'
+- V Papasotiropoulos
 date: '2020-01-01'
-doi: ''
-featured: false
-image:
-  caption: ''
-  focal_point: Smart
-  preview_only: false
-publication: ''
 publication_types:
-- '0'
-tags: []
-title: Genetic Diversity and Range Dynamics of Helleborus odorus subsp. cyclophyllus
-  under Different Climate Change Scenarios
-url_pdf: ''
+- article-journal
+publication: '*Forests*, 11(6), 620'
+doi: 10.3390/f11060620
+featured: false
+abstract: ''
 ---

@@ -1,24 +1,16 @@
 ---
-abstract: ''
+title: Extinction Risk Assessment of the Greek Endemic Flora
 authors:
 - K Kougioumoutzis
 - IP Kokkoris
 - M Panitsa
 - A Strid
-- P DimopoulosBiology 10 (3)
-- '195'
-- '2021'
+- P Dimopoulos
 date: '2021-01-01'
-doi: ''
-featured: false
-image:
-  caption: ''
-  focal_point: Smart
-  preview_only: false
-publication: ''
 publication_types:
-- '0'
-tags: []
-title: Extinction Risk Assessment of the Greek Endemic Flora
-url_pdf: ''
+- article-journal
+publication: '*Biology*, 10(3), 195'
+doi: 10.3390/biology10030195
+featured: true
+abstract: ''
 ---

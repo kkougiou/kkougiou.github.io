@@ -1,22 +1,13 @@
 ---
-abstract: ''
+title: Ecological factors driving plant species diversity in the South Aegean Volcanic Arc and other central Aegean islands
 authors:
 - K Kougioumoutzis
-- A TiniakouPlant Ecology & Diversity 8 (2)
-- 173-186
-- '2015'
+- A Tiniakou
 date: '2015-01-01'
-doi: ''
-featured: false
-image:
-  caption: ''
-  focal_point: Smart
-  preview_only: false
-publication: ''
 publication_types:
-- '0'
-tags: []
-title: Ecological factors driving plant species diversity in the South Aegean Volcanic
-  Arc and other central Aegean islands
-url_pdf: ''
+- article-journal
+publication: '*Plant Ecology & Diversity*, 8(2), 173-186'
+doi: 10.1080/17550874.2013.866989
+featured: false
+abstract: ''
 ---

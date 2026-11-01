@@ -1,25 +1,16 @@
 ---
-abstract: ''
+title: Climate-Change Impacts on the Southernmost Mediterranean Arctic-Alpine Plant Populations
 authors:
 - K Kougioumoutzis
 - IP Kokkoris
 - A Strid
 - T Raus
-- P DimopoulosSustainability 13 (24)
-- '13778'
-- '2021'
+- P Dimopoulos
 date: '2021-01-01'
-doi: ''
-featured: false
-image:
-  caption: ''
-  focal_point: Smart
-  preview_only: false
-publication: ''
 publication_types:
-- '0'
-tags: []
-title: Climate-Change Impacts on the Southernmost Mediterranean Arctic-Alpine Plant
-  Populations
-url_pdf: ''
+- article-journal
+publication: '*Sustainability*, 13(24), 13778'
+doi: 10.3390/su132413778
+featured: false
+abstract: ''
 ---

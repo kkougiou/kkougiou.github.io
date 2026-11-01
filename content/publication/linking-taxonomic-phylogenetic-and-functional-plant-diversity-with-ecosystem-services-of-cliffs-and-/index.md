@@ -1,5 +1,5 @@
 ---
-abstract: ''
+title: Linking Taxonomic, Phylogenetic and Functional Plant Diversity with Ecosystem Services of Cliffs and Screes in Greece
 authors:
 - M Panitsa
 - IP Kokkoris
@@ -7,21 +7,12 @@ authors:
 - A Kontopanou
 - I Bazos
 - A Strid
-- '...Plants 10 (5)'
-- '992'
-- '2021'
+- P Dimopoulos
 date: '2021-01-01'
-doi: ''
-featured: false
-image:
-  caption: ''
-  focal_point: Smart
-  preview_only: false
-publication: ''
 publication_types:
-- '0'
-tags: []
-title: Linking Taxonomic, Phylogenetic and Functional Plant Diversity with Ecosystem
-  Services of Cliffs and Screes in Greece
-url_pdf: ''
+- article-journal
+publication: '*Plants*, 10(5), 992'
+doi: 10.3390/plants10050992
+featured: false
+abstract: ''
 ---

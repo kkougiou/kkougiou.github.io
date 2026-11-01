@@ -11,24 +11,46 @@ sections:
       title: Biography
       # Choose a user profile to display (a folder name within `content/authors/`)
       username: admin
+  - block: features
+    id: research
+    content:
+      title: Research
+      text: ''
+      items:
+        - name: Island & mountain biogeography
+          icon: mountain
+          icon_pack: fas
+          description: How area, isolation, geological history and past sea-level change shape plant diversity and endemism across the Aegean islands and the Greek mountains.
+        - name: Global change & distributions
+          icon: globe-europe
+          icon_pack: fas
+          description: Species distribution models and ensembles of small models for range-restricted endemics under future climate and land-use change, and how well protected areas will keep up.
+        - name: Taxonomy & extinction risk
+          icon: seedling
+          icon_pack: fas
+          description: Morphometric taxonomy, new taxa and rediscoveries, floristic inventories, IUCN Red List assessments and conservation genetics of threatened Greek plants.
+    design:
+      columns: '1'
   - block: collection
     id: featured
     content:
-      title: Featured Publications
+      title: Selected publications
       filters:
         folders:
           - publication
         featured_only: true
     design:
       columns: '2'
-      view: card
+      view: citation
   - block: collection
     id: publications
     content:
-      title: Publications
+      title: Recent publications
+      count: 6
       filters:
         folders:
           - publication
+        exclude_featured: false
       sort_by: 'date'
       sort_ascending: false
     design:

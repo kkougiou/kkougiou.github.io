@@ -1,26 +1,17 @@
 ---
-abstract: ''
+title: 'Greek protected areas fail to fully capture shifting endemism hotspots under future climate and land-use change: The case of Peloponnese'
 authors:
-- MB Pires
+- M Braz Pires
 - K Kougioumoutzis
 - S Norder
 - P Dimopoulos
 - A Strid
-- M PanitsaBiological Conservation 309
-- '111268'
-- '2025'
+- M Panitsa
 date: '2025-01-01'
-doi: ''
-featured: false
-image:
-  caption: ''
-  focal_point: Smart
-  preview_only: false
-publication: ''
 publication_types:
-- '0'
-tags: []
-title: 'Greek protected areas fail to fully capture shifting endemism hotspots under
-  future climate and land-use change: The case of Peloponnese'
-url_pdf: ''
+- article-journal
+publication: '*Biological Conservation*, 309, 111268'
+doi: 10.1016/j.biocon.2025.111268
+featured: false
+abstract: ''
 ---

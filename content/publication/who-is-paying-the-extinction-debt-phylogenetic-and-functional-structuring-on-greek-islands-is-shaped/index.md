@@ -1,23 +1,19 @@
 ---
-abstract: ''
+title: Who Is Paying the Extinction Debt? Phylogenetic and Functional Structuring on Greek Islands Is Shaped by Sea-Level Rise Since the Last Glacial Maximum
 authors:
-- N Michielsen
+- NM Michielsen
 - C Hammoud
 - J Foufopoulos
 - K Kougioumoutzis
-- '...'
-date: '2025-01-01'
-doi: ''
-featured: false
-image:
-  caption: ''
-  focal_point: Smart
-  preview_only: false
-publication: ''
+- A Vidal‐Hosteng
+- EE van Loon
+- J De Groeve
+- KF Rijsdijk
+date: '2026-01-01'
 publication_types:
-- '0'
-tags: []
-title: Who is paying the extinction debt? Phylogenetic and functional structuring
-  on Greek islands is shaped by sea-level rise since the Last Glacial Maximum
-url_pdf: ''
+- article-journal
+publication: '*Ecology and Evolution*, 16(7), e73894'
+doi: 10.1002/ece3.73894
+featured: false
+abstract: ''
 ---

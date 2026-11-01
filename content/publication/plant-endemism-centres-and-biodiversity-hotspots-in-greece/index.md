@@ -1,25 +1,17 @@
 ---
-abstract: ''
+title: Plant Endemism Centres and Biodiversity Hotspots in Greece
 authors:
 - K Kougioumoutzis
-- IP Kokkoris
+- I Kokkoris
 - M Panitsa
 - A Kallimanis
 - A Strid
-- '...Biology 10 (2)'
-- '72'
-- '2021'
+- P Dimopoulos
 date: '2021-01-01'
-doi: ''
-featured: false
-image:
-  caption: ''
-  focal_point: Smart
-  preview_only: false
-publication: ''
 publication_types:
-- '0'
-tags: []
-title: Plant Endemism Centres and Biodiversity Hotspots in Greece
-url_pdf: ''
+- article-journal
+publication: '*Biology*, 10(2), 72'
+doi: 10.3390/biology10020072
+featured: true
+abstract: ''
 ---

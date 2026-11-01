@@ -1,26 +1,17 @@
 ---
-abstract: ''
+title: 'The future of plant diversity within a Mediterranean endemism centre: Modelling the synergistic effects of climate and land-use change in Peloponnese, Greece'
 authors:
-- MB Pires
+- M Braz Pires
 - K Kougioumoutzis
 - S Norder
 - P Dimopoulos
 - A Strid
-- M PanitsaScience of The Total Environment
-- '174622'
-- '2024'
+- M Panitsa
 date: '2024-01-01'
-doi: ''
-featured: false
-image:
-  caption: ''
-  focal_point: Smart
-  preview_only: false
-publication: ''
 publication_types:
-- '0'
-tags: []
-title: 'The future of plant diversity within a Mediterranean endemism centre: Modelling
-  the synergistic effects of climate and land-use change in Peloponnese, Greece'
-url_pdf: ''
+- article-journal
+publication: '*Science of The Total Environment*, 947, 174622'
+doi: 10.1016/j.scitotenv.2024.174622
+featured: false
+abstract: ''
 ---

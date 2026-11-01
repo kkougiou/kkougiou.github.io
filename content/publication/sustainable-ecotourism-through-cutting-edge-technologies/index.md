@@ -1,5 +1,5 @@
 ---
-abstract: ''
+title: Sustainable Ecotourism through Cutting-Edge Technologies
 authors:
 - G Pavlidis
 - A Solomou
@@ -7,20 +7,16 @@ authors:
 - V Papavassiliou
 - K Kritsis
 - C Kiourt
-- '...Sustainability 14 (2)'
-- '800'
-- '2022'
+- V Sevetlidis
+- G Karetsos
+- P Trigas
+- K Kougioumoutzis
+- et al.
 date: '2022-01-01'
-doi: ''
-featured: false
-image:
-  caption: ''
-  focal_point: Smart
-  preview_only: false
-publication: ''
 publication_types:
-- '0'
-tags: []
-title: Sustainable Ecotourism through Cutting-Edge Technologies
-url_pdf: ''
+- article-journal
+publication: '*Sustainability*, 14(2), 800'
+doi: 10.3390/su14020800
+featured: false
+abstract: ''
 ---

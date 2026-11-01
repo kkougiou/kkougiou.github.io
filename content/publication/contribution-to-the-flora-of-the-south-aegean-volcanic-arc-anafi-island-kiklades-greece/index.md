@@ -1,24 +1,15 @@
 ---
-abstract: ''
+title: 'Contribution to the flora of the South Aegean Volcanic Arc: Anafi Island (Kiklades, Greece)'
 authors:
 - K Kougioumoutzis
 - A Tiniakou
 - O Georgiou
-- T GeorgiadisWilldenowia 42 (1)
-- 127-141
-- '2012'
+- T Georgiadis
 date: '2012-01-01'
-doi: ''
-featured: false
-image:
-  caption: ''
-  focal_point: Smart
-  preview_only: false
-publication: ''
 publication_types:
-- '0'
-tags: []
-title: 'Contribution to the flora of the South Aegean volcanic arc: Anafi island (Kiklades,
-  Greece)'
-url_pdf: ''
+- article-journal
+publication: '*Willdenowia*, 42(1), 127-141'
+doi: 10.3372/wi.42.42115
+featured: false
+abstract: ''
 ---
