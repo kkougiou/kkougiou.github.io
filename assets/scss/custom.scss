@@ -181,11 +181,6 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid $kk-green; outline-offs
 .pub-abstract-text p { margin-bottom: .6rem; }
 @media (prefers-reduced-motion: reduce) { .pub-abstract summary::before { transition: none; } }
 
-// Section subtitles carry the page from one part to the next
-.home-section .section-heading p, .featurette .section-heading p {
-  font-size: 1.1rem; color: #5b6862; max-width: 40rem; margin: .4rem auto 0;
-}
-.featurette .section-heading { text-align: center; margin-bottom: 2.25rem; }
 html { scroll-padding-top: 80px; }
 
 // Impact: one sentence and a citations-per-year chart
