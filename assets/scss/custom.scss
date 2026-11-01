@@ -1,0 +1,265 @@
+// Self-hosted fonts (SIL Open Font License, see static/fonts/*-OFL.txt).
+// No Google Fonts request, so visitors' IP addresses are not sent to Google.
+@font-face {
+  font-family: 'Spectral'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url('../fonts/spectral-latin-400-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Spectral'; font-style: italic; font-weight: 400; font-display: swap;
+  src: url('../fonts/spectral-latin-400-italic.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Spectral'; font-style: normal; font-weight: 600; font-display: swap;
+  src: url('../fonts/spectral-latin-600-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Spectral'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url('../fonts/spectral-latin-ext-400-normal.woff2') format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Spectral'; font-style: normal; font-weight: 600; font-display: swap;
+  src: url('../fonts/spectral-latin-ext-600-normal.woff2') format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Source Sans 3'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url('../fonts/source-sans-3-latin-400-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Source Sans 3'; font-style: italic; font-weight: 400; font-display: swap;
+  src: url('../fonts/source-sans-3-latin-400-italic.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Source Sans 3'; font-style: normal; font-weight: 600; font-display: swap;
+  src: url('../fonts/source-sans-3-latin-600-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Source Sans 3'; font-style: normal; font-weight: 700; font-display: swap;
+  src: url('../fonts/source-sans-3-latin-700-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Source Sans 3'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url('../fonts/source-sans-3-latin-ext-400-normal.woff2') format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Source Sans 3'; font-style: italic; font-weight: 400; font-display: swap;
+  src: url('../fonts/source-sans-3-latin-ext-400-italic.woff2') format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Source Sans 3'; font-style: normal; font-weight: 600; font-display: swap;
+  src: url('../fonts/source-sans-3-latin-ext-600-normal.woff2') format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Source Sans 3'; font-style: normal; font-weight: 700; font-display: swap;
+  src: url('../fonts/source-sans-3-latin-ext-700-normal.woff2') format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Source Sans 3'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url('../fonts/source-sans-3-greek-400-normal.woff2') format('woff2'); unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Source Sans 3'; font-style: italic; font-weight: 400; font-display: swap;
+  src: url('../fonts/source-sans-3-greek-400-italic.woff2') format('woff2'); unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Source Sans 3'; font-style: normal; font-weight: 600; font-display: swap;
+  src: url('../fonts/source-sans-3-greek-600-normal.woff2') format('woff2'); unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Source Sans 3'; font-style: normal; font-weight: 700; font-display: swap;
+  src: url('../fonts/source-sans-3-greek-700-normal.woff2') format('woff2'); unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;
+}
+
+// Keep the long site name from colliding with the navbar icons on phones.
+@media (max-width: 575.98px) {
+  .navbar-brand { font-size: 1rem; }
+}
+
+// Bluesky icon (Font Awesome 6.5 in this theme has none). Path: Simple Icons, CC0.
+.kk { display: inline-block; }
+.kk-bluesky {
+  width: 1em; height: 1em; vertical-align: -0.125em;
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+// "Cited by" badge in publication lists
+.pub-cites {
+  display: inline-block; margin-left: .35rem; padding: .05rem .4rem;
+  font-size: .75rem; line-height: 1.4; vertical-align: middle;
+  border-radius: .2rem; border: 1px solid currentColor; opacity: .7;
+}
+
+// ---------------------------------------------------------------------------
+// Herbarium look: serif headings, quiet sage sections, figure-led paper cards
+// ---------------------------------------------------------------------------
+$kk-green: #24604a;
+$kk-green-deep: #173f30;
+$kk-sage: #eef3ef;
+$kk-rule: #d5e0d8;
+
+h1, h2, h3, .section-heading h1 { font-weight: 400; letter-spacing: -0.005em; }
+.home-section .section-heading h1 { font-size: 2.6rem; }
+.article-style h3, #about h3 { font-weight: 600; }
+.navbar-brand { font-family: 'Spectral', serif; font-weight: 600; letter-spacing: 0; }
+.portrait-title h2 { font-weight: 400; }
+.portrait-title h3 { font-family: 'Source Sans 3', sans-serif; font-size: 1.05rem; line-height: 1.4; }
+#profile .network-icon .big-icon { font-size: 1.55rem; }
+#profile .avatar { box-shadow: 0 0 0 4px #fff, 0 0 0 5px $kk-rule; }
+
+// Research themes
+#research .featurette-icon { color: $kk-green; }
+#research .section-subheading { font-family: 'Spectral', serif; font-size: 1.35rem; }
+
+// Selected publications: a 2 x 2 grid of cards led by the paper's own figure
+#featured .home-section-bg + .container .row > .col-12:not(.section-heading),
+#featured .container .row > .col-12:not(.section-heading) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.75rem 2.25rem;
+  max-width: 1000px; margin: 0 auto;
+}
+@media (max-width: 767.98px) {
+  #featured .container .row > .col-12:not(.section-heading) { grid-template-columns: 1fr; }
+}
+.pub-card { display: flex; flex-direction: column; }
+.pub-card-figure {
+  display: block; aspect-ratio: 7 / 6; overflow: hidden;
+  border: 1px solid $kk-rule; border-radius: 2px; background: $kk-sage;
+}
+.pub-card-figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pub-card-noimage {
+  display: flex; align-items: flex-end; height: 100%; padding: 1.25rem;
+  font-family: 'Spectral', serif; font-size: 1.6rem; line-height: 1.2; color: $kk-green-deep;
+}
+.pub-card-title { font-size: 1.3rem; line-height: 1.3; margin: 1rem 0 .35rem; font-weight: 600; }
+.pub-card-title a { color: inherit; }
+.pub-card-title a:hover { color: $kk-green; }
+.pub-card-meta { font-size: .9rem; color: #5b6862; margin-bottom: .6rem; }
+.pub-card-links, .view-citation p {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .45rem;
+}
+.pub-card-links .btn, .view-citation p .btn { margin: 0 !important; }
+.pub-cites { margin-left: .2rem; }
+
+// Keyboard focus that is visible on both themes
+a:focus-visible, .btn:focus-visible { outline: 2px solid $kk-green; outline-offset: 2px; }
+
+// Dark mode counterparts
+.dark {
+  #research .featurette-icon, .pub-card-title a:hover { color: #8fcfae; }
+  .pub-card-figure { border-color: #2a3a33; background: #18211d; }
+  .pub-card-noimage { color: #b8e3cb; }
+  .pub-card-meta { color: #a9b8b0; }
+  #profile .avatar { box-shadow: 0 0 0 4px #131a17, 0 0 0 5px #2a3a33; }
+}
+
+// Figure credit below the figure on publication pages, not on top of it
+.article-header .article-header-caption {
+  position: static; display: block; background: none; color: #5b6862;
+  text-align: right; font-size: .8rem; padding: .35rem 0 0;
+}
+.article-header .article-header-caption a { color: inherit !important; text-decoration: underline; }
+.dark .article-header .article-header-caption { color: #a9b8b0; }
+
+// Collapsible abstracts in lists and cards
+.pub-abstract { margin: .5rem 0 0; }
+.pub-abstract summary {
+  display: inline-flex; align-items: center; gap: .3rem; cursor: pointer;
+  font-size: .85rem; color: $kk-green; list-style: none;
+}
+.pub-abstract summary::-webkit-details-marker { display: none; }
+.pub-abstract summary::before {
+  content: ""; width: .45rem; height: .45rem; border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor; transform: rotate(-45deg); transition: transform .15s ease;
+}
+.pub-abstract[open] summary::before { transform: rotate(45deg); }
+.pub-abstract-text {
+  margin-top: .6rem; padding-left: .9rem; border-left: 2px solid $kk-rule;
+  font-size: .92rem; line-height: 1.6; color: #3d4a44; max-width: 46rem;
+}
+.pub-abstract-text p { margin-bottom: .6rem; }
+@media (prefers-reduced-motion: reduce) { .pub-abstract summary::before { transition: none; } }
+
+html { scroll-padding-top: 80px; }
+
+// Impact: one sentence and a citations-per-year chart
+.metrics-wrap { max-width: 860px; margin: 0 auto; }
+.metrics-lead { font-size: 1.15rem; text-align: center; margin-bottom: 1.75rem; }
+.metrics-lead strong { font-family: 'Spectral', serif; font-weight: 600; font-size: 1.35rem; color: $kk-green-deep; }
+.metrics-chart { margin: 0; }
+.metrics-chart svg { width: 100%; height: auto; display: block; }
+.metrics-chart .bar rect { fill: $kk-green; }
+.metrics-chart .bar.partial rect { fill: #9cc4b0; }
+.metrics-chart .axis { stroke: $kk-rule; stroke-width: 1; }
+.metrics-chart text { font-family: 'Source Sans 3', sans-serif; text-anchor: middle; }
+.metrics-chart .val { font-size: 13px; fill: #3d4a44; }
+.metrics-chart .yr { font-size: 12px; fill: #5b6862; }
+.metrics-chart figcaption { text-align: center; font-size: .85rem; color: #5b6862; margin-top: .5rem; }
+
+.dark {
+  .pub-abstract summary { color: #8fcfae; }
+  .pub-abstract-text { color: #c9d6cf; border-color: #2a3a33; }
+  .home-section .section-heading p, .featurette .section-heading p { color: #a9b8b0; }
+  .metrics-lead strong { color: #b8e3cb; }
+  .metrics-chart .bar rect { fill: #8fcfae; }
+  .metrics-chart .bar.partial rect { fill: #4d7a66; }
+  .metrics-chart .val { fill: #d6e2db; }
+  .metrics-chart .yr, .metrics-chart figcaption { fill: #a9b8b0; color: #a9b8b0; }
+  .metrics-chart .axis { stroke: #2a3a33; }
+}
+
+// ---------------------------------------------------------------------------
+// Full-screen opening photo; the rest of the page scrolls up over it
+// ---------------------------------------------------------------------------
+#hero.home-section { padding: 0 !important; position: sticky; top: 70px; z-index: 0; }
+#hero > .container { max-width: none; padding: 0; }
+#hero > .container > .row { margin: 0; }
+#hero .home-section-bg { display: none; }
+.kk-hero { position: relative; width: 100%; height: calc(100vh - 70px); height: calc(100svh - 70px); overflow: hidden; background: #3d4a44; }
+.kk-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
+.kk-hero-shade {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10, 26, 19, .72) 0%, rgba(10, 26, 19, .25) 45%, rgba(10, 26, 19, 0) 70%);
+}
+.kk-hero-text {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 0 6vw 9vh; color: #fff;
+  animation: kk-hero-in 1.1s cubic-bezier(.2, .7, .2, 1) .15s both;
+}
+.kk-hero-text h1 {
+  font-family: 'Spectral', serif; font-weight: 400; color: #fff;
+  font-size: clamp(2.4rem, 6.2vw, 5.2rem); line-height: 1.02; margin: 0 0 .9rem; max-width: 1000px;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, .25);
+}
+.kk-hero-text p { font-size: clamp(1.05rem, 1.7vw, 1.4rem); max-width: 34rem; margin: 0; color: rgba(255, 255, 255, .92); }
+.kk-hero-down {
+  position: absolute; right: 6vw; bottom: 9vh; width: 2.75rem; height: 2.75rem;
+  border: 1.5px solid rgba(255, 255, 255, .8); border-radius: 50%; display: grid; place-items: center;
+}
+.kk-hero-down span {
+  width: .6rem; height: .6rem; border-right: 2px solid #fff; border-bottom: 2px solid #fff;
+  transform: translateY(-2px) rotate(45deg);
+}
+.kk-hero-down:hover, .kk-hero-down:focus-visible { background: rgba(255, 255, 255, .15); }
+@keyframes kk-hero-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+// Sections after the photo sit above it and are opaque, so they slide over it
+.home-section:not(#hero) { position: relative; z-index: 1; background: #fff; }
+#research.home-section, #publications.home-section { background: $kk-sage; }
+.dark .home-section:not(#hero) { background: #131a17; }
+.dark #research.home-section, .dark #publications.home-section { background: #18211d; }
+footer.site-footer, .page-footer { position: relative; z-index: 1; background: inherit; }
+
+// Gentle reveal (classes are added by layouts/partials/hooks/body-end/reveal.html)
+.kk-reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1); }
+.kk-reveal.kk-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .kk-hero-text { animation: none; }
+  #hero.home-section { position: relative; top: 0; }
+}
+@media (max-width: 575.98px) {
+  .kk-hero-text { padding-bottom: 12vh; }
+  .kk-hero-down { right: auto; left: 6vw; bottom: 4vh; }
+}

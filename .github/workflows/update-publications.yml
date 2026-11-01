@@ -1,87 +1,56 @@
+# Once a month: (1) refreshes the "Cited by" counts from OpenAlex and publishes
+# them straight away; (2) checks Crossref for new papers by Kougioumoutzis that
+# are not on the site yet. New papers are added as hidden drafts in a pull request, so
+# nothing is published until you review the PR, remove `draft: true` from the
+# ones you want, and merge.
+#
+# To add a single paper yourself:  python scripts/crossref_publications.py add <DOI>
 name: Update Publications
 
 on:
   schedule:
-    - cron: '0 0 2 */6 *'  # Run at midnight on the 2nd day of each month
-  workflow_dispatch:  # Allow manual trigger
+    - cron: '17 4 3 * *'  # 04:17 UTC on the 3rd of every month
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
-  update-publications:
+  discover:
+    if: github.repository_owner != 'HugoBlox'
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    outputs:
-      has_changes: ${{ steps.check_changes.outputs.has_changes }}
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          fetch-depth: 0
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-          cache: 'pip'
-
-      - name: Install dependencies
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Refresh citation counts and profile metrics (OpenAlex)
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Update publications
-        env:
-          GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
-          SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
+          python scripts/crossref_publications.py counts
+          python scripts/crossref_publications.py metrics
+      - name: Commit citation counts
         run: |
-          python scripts/advanced_publication_script.py
-        continue-on-error: true  # Continue even if script fails
-
-      - name: Check for changes
-        id: check_changes
-        run: |
-          git status --porcelain content/publication/
-          echo "has_changes=$(git status --porcelain content/publication/ | wc -l)" >> $GITHUB_OUTPUT
-
-      - name: Commit and push if there are changes
-        if: steps.check_changes.outputs.has_changes != '0'
-        run: |
-          git config --global user.name 'GitHub Action'
-          git config --global user.email 'action@github.com'
-          git add content/publication/
-          git commit -m "Update publications from Google Scholar"
-          git push
-
-  deploy-site:
-    needs: update-publications
-    if: needs.update-publications.outputs.has_changes == '1'
-    runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+          git config user.name 'github-actions'
+          git config user.email 'github-actions@users.noreply.github.com'
+          git add content/publication data/citations.yaml data/metrics.yaml
+          if ! git diff --cached --quiet; then
+            git commit -m "Update citation counts from OpenAlex"
+            git push
+          fi
+      - name: Look for new papers on Crossref
+        run: python scripts/crossref_publications.py discover --write
+      - name: Open a pull request with any new papers
+        uses: peter-evans/create-pull-request@v6
         with:
-          submodules: true
-          fetch-depth: 0
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: 'latest'
-          extended: true
-
-      - name: Build
-        run: hugo --minify
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/main'
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          user_name: 'GitHub Action'
-          user_email: 'action@github.com'
-          commit_message: ${{ github.event.head_commit.message }}
-          full_commit_message: ${{ github.event.head_commit.message }}
+          commit-message: 'content: add new publications from Crossref (drafts)'
+          title: New publications found on Crossref
+          body: |
+            New works by Kougioumoutzis were found on Crossref that are not on the site yet.
+            They were added with `draft: true`, so they stay hidden. For each one you want
+            to show, delete the `draft: true` line (and fix anything that looks off), then merge.
+            Close this PR to ignore them.
+          branch: crossref-new-publications
+          delete-branch: true
+          labels: automated-pr, content

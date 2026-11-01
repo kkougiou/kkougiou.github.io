@@ -6,9 +6,9 @@
 # Appearance
 
 appearance:
-  theme_day: minimal
-  theme_night: minimal
-  font: minimal
+  theme_day: herbarium
+  theme_night: herbarium
+  font: herbarium
   font_size: L
 
 # SEO
@@ -18,8 +18,8 @@ marketing:
     site_type: Person
     local_business_type: ''
     org_name: ''
-    description: 'A highly-customizable Hugo academic resume theme powered by Hugo Blox Builder.'
-    twitter: 'GetResearchDev'
+    description: 'Konstantinos (Kostas) Kougioumoutzis — plant taxonomist and biogeographer working on the endemic flora of Greece and the Mediterranean: island and mountain biogeography, species distribution modelling, extinction risk and conservation.'
+    twitter: 'konkougioumou'
   analytics:
     google_analytics: ''
     baidu_tongji: ''
@@ -45,7 +45,7 @@ header:
 
 footer:
   copyright:
-    notice: '© {year} Me. This work is licensed under {license}'
+    notice: '© {year} Konstantinos Kougioumoutzis. This work is licensed under {license}'
     license:
       enable: true
       allow_derivatives: false
@@ -70,7 +70,7 @@ features:
   privacy_pack:
     enable: false
   repository:
-    url: 'https://github.com/<username>/<repository>'
+    url: 'https://github.com/kkougiou/kkougiou.github.io'
     content_dir: content
     branch: main
   avatar:

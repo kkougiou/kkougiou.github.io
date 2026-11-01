@@ -1,0 +1,40 @@
+source: OpenAlex
+openalex_id: https://openalex.org/A5036399106
+updated: '2026-11-01'
+publications_on_site: 59
+citations: 1136
+h_index: 20
+i10_index: 32
+citations_by_year:
+- year: 2009
+  citations: 0
+- year: 2012
+  citations: 1
+- year: 2013
+  citations: 0
+- year: 2014
+  citations: 18
+- year: 2015
+  citations: 12
+- year: 2016
+  citations: 19
+- year: 2017
+  citations: 20
+- year: 2018
+  citations: 24
+- year: 2019
+  citations: 25
+- year: 2020
+  citations: 107
+- year: 2021
+  citations: 146
+- year: 2022
+  citations: 148
+- year: 2023
+  citations: 169
+- year: 2024
+  citations: 160
+- year: 2025
+  citations: 179
+- year: 2026
+  citations: 108

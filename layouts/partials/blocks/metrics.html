@@ -1,0 +1,51 @@
+{{/* Custom block "metrics": citation summary and citations-per-year chart.
+     Data: data/metrics.yaml, refreshed monthly from OpenAlex by the Update Publications Action. */}}
+{{ $block := .wcBlock }}
+{{ $m := site.Data.metrics }}
+{{ with $m }}
+{{ $years := slice }}
+{{ $started := false }}
+{{ range .citations_by_year }}
+  {{ if or $started (gt .citations 0) }}{{ $started = true }}{{ $years = $years | append . }}{{ end }}
+{{ end }}
+{{ $max := 1 }}
+{{ range $years }}{{ if gt .citations $max }}{{ $max = .citations }}{{ end }}{{ end }}
+{{ $n := len $years }}
+{{ $bw := 46 }}{{ $gap := 14 }}{{ $chartH := 180 }}{{ $top := 26 }}{{ $bottom := 30 }}
+{{ $W := add (mul $n (add $bw $gap)) $gap }}
+{{ $H := add (add $chartH $top) $bottom }}
+{{ $thisYear := now.Year }}
+{{ with $block.content.title }}
+<div class="section-heading col-12 mb-3 text-center"><h1 class="mb-0">{{ . | markdownify }}</h1>
+  {{ with $block.content.subtitle }}<p>{{ . | markdownify }}</p>{{ end }}</div>
+{{ end }}
+<div class="col-12">
+  <div class="metrics-wrap">
+    <p class="metrics-lead">
+      Cited <strong>{{ lang.FormatNumber 0 .citations }}</strong> times, with an h-index of
+      <strong>{{ .h_index }}</strong> and an i10-index of <strong>{{ .i10_index }}</strong>,
+      across <strong>{{ .publications_on_site }}</strong> publications listed on this site.
+    </p>
+    <figure class="metrics-chart">
+      <svg viewBox="0 0 {{ $W }} {{ $H }}" role="img" aria-labelledby="metrics-title">
+        <title id="metrics-title">Citations per year{{ range $years }}, {{ .year }}: {{ .citations }}{{ end }}</title>
+        <line x1="{{ $gap }}" y1="{{ add $top $chartH }}" x2="{{ sub $W $gap }}" y2="{{ add $top $chartH }}" class="axis"/>
+        {{ range $i, $y := $years }}
+          {{ $h := div (mul (float $y.citations) $chartH) $max }}
+          {{ $x := add $gap (mul $i (add $bw $gap)) }}
+          {{ $yy := sub (add $top $chartH) $h }}
+          <g class="{{ if eq $y.year $thisYear }}bar partial{{ else }}bar{{ end }}">
+            <rect x="{{ $x }}" y="{{ $yy }}" width="{{ $bw }}" height="{{ $h }}" rx="2"/>
+            <text x="{{ add $x (div $bw 2) }}" y="{{ sub $yy 7 }}" class="val">{{ $y.citations }}</text>
+            <text x="{{ add $x (div $bw 2) }}" y="{{ add (add $top $chartH) 21 }}" class="yr">{{ $y.year }}</text>
+          </g>
+        {{ end }}
+      </svg>
+      <figcaption>
+        Citations per year{{ range $years }}{{ if eq .year $thisYear }} ({{ $thisYear }} so far){{ end }}{{ end }}.
+        Source: <a href="{{ .openalex_id }}">OpenAlex</a>, updated {{ (time .updated).Format "2 January 2006" }}.
+      </figcaption>
+    </figure>
+  </div>
+</div>
+{{ end }}

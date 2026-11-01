@@ -7,8 +7,20 @@ on:
   # Trigger the workflow every time you push to the `main` branch
   push:
     branches: ["main"]
-  # Allows you to run this workflow manually from the Actions tab on GitHub.
+  # Run manually from the Actions tab. Leave "version" empty to deploy the
+  # current site, or enter any branch, tag or commit to put that older version
+  # of the website back online (e.g. snapshot/before-refresh-2026-11-01).
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Branch, tag or commit to deploy (empty = current main)'
+        required: false
+        default: ''
+  # Redeploy after the monthly citation-count refresh (pushes made by Actions
+  # do not trigger the push event above).
+  workflow_run:
+    workflows: ["Update Publications"]
+    types: [completed]
 
 # Provide permission to clone the repo and deploy it to GitHub Pages
 permissions:
@@ -29,6 +41,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.inputs.version || github.ref }}
           # Fetch history for Hugo's .GitInfo and .Lastmod
           fetch-depth: 0
       - name: Setup Hugo

@@ -1,0 +1,7 @@
+{{/* Collapsible abstract used in publication lists and cards. */}}
+{{ with .Params.abstract }}
+<details class="pub-abstract">
+  <summary>Abstract</summary>
+  <div class="pub-abstract-text">{{ . | markdownify }}</div>
+</details>
+{{ end }}

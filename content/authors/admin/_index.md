@@ -10,22 +10,20 @@ first_name: Konstantinos
 last_name: Kougioumoutzis
 
 # Status emoji
-status:
-  icon: 🔎
 
 # Is this the primary user of the site?
 superuser: true
 
 # Role/position/tagline
-role: Post-doctoral researcher
+role: Postdoctoral researcher in plant taxonomy and biogeography
 
 # Organizations/Affiliations to show in About widget
 organizations:
   - name: Laboratory of Botany, Department of Biology, University of Patras
-    url: www.biology.upatras.gr/
+    url: https://www.biology.upatras.gr/
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests span from investigating island and mountain biodiversity and biogeographical patterns to assesing the impacts of climate and land-use change on plant species distribution
+bio: Plant taxonomist and biogeographer working on the endemic flora of Greece and the Mediterranean — island and mountain biogeography, species distribution modelling and extinction risk.
 
 # Interests to show in About widget
 interests:
@@ -82,15 +80,28 @@ social:
   - icon: envelope
     icon_pack: fas
     link: 'mailto:kkougiou@aua.gr'
-  - icon: twitter
+  - icon: x-twitter
     icon_pack: fab
-    link: https://twitter.com/konkougioumou
-    label: Follow me on Twitter
+    link: https://x.com/konkougioumou
+    label: X (Twitter)
     display:
       header: true
-  - icon: graduation-cap # Alternatively, use `google-scholar` icon from `ai` icon pack
-    icon_pack: fas
+  - icon: google-scholar
+    icon_pack: ai
     link: https://scholar.google.gr/citations?user=CceadYwAAAAJ&hl=en
+    label: Google Scholar
+  - icon: orcid
+    icon_pack: ai
+    link: https://orcid.org/0000-0002-6938-3025
+    label: ORCID
+  - icon: researchgate
+    icon_pack: ai
+    link: https://www.researchgate.net/profile/Konstantinos-Kougioumoutzis
+    label: ResearchGate
+  - icon: bluesky
+    icon_pack: kk
+    link: https://bsky.app/profile/kostaskou.bsky.social
+    label: Bluesky
   - icon: github
     icon_pack: fab
     link: https://github.com/kkougiou
@@ -103,38 +114,31 @@ social:
   - icon: cv
     icon_pack: ai
     link: uploads/CV.pdf
+    label: CV
 
 # Highlight the author in author lists? (true/false)
 highlight_name: true
 ---
 
-Kostas is a quantitative ecologist and plant taxonomist. 
+Kostas Kougioumoutzis is a plant taxonomist and quantitative biogeographer working on the vascular flora of Greece and the wider Mediterranean. His research connects field botany and herbarium-based taxonomy with large-scale biodiversity analyses: island and mountain biogeography, species distribution modelling under climate and land-use change, and extinction-risk assessment, with a particular focus on narrow-range endemics.
 
-His research interests span from investigating island and mountain biogeographical and biodiversity patterns to assessing the effects of climate and land-use change on plant species distribution, with an emphasis on range-restricted species.
-{style="text-align: justify;"}
+He has described or co-described three plant taxa new to science, rediscovered the Peloponnesian endemic *Stachys virgata*, and has authored more than 55 peer-reviewed articles. He is a member of the IUCN Species Survival Commission and a certified IUCN Regional Red List Assessor.
 
-# Achievements
-1. He has been a **Principal Investigator** of the research program entitled: "Species on the brink of extinction" funded by **HFRI** & **GSRT** [2018-2021]
-2. He has been a Post-doctoral fellow funded by the **SSF** for the research program entitled "Greek biodiversity under siege: safeguarding the future" [2020 – 2022]
-3. He has received the **best paper award for 2022** for his publication regarding the [impacts of climate change on the Cretan single island endemics](https://www.mdpi.com/1424-2818/12/7/270) in MDPI Diversity
-4. He is a member of the IUCN Species Survival Committee
-5. He has served as a Board member of the [Hellenic Botanical Society](https://www.hbs.gr/about) [2019-2022; Substitute member: 2022-2025]
-6. He has served as a Guest Editor for:
-    1. a [special issue](https://www.mdpi.com/journal/sustainability/special_issues/PDCM) of Sustainability
-    2. [another special issue](https://www.mdpi.com/journal/land/special_issues/land_plant) of Land
-    3. and [a third special issue](https://www.mdpi.com/journal/plants/special_issues/Taxon_Plant_Conserv_II) of Plants
-{style="text-align: justify;"}
+### Highlights
 
-# Collaborations
-1. He collaborates closely with [Prof. Panayotis Dimopoulos](https://scholar.google.gr/citations?user=1WMOcPMAAAAJ&hl=en&oi=ao) and [Prof. Maria Panitsa](https://scholar.google.gr/citations?user=JLeOBm0AAAAJ&hl=en) and the [Botany lab](http://botanylab.upatras.gr/) team
+- **Principal Investigator**, "Species on the brink of extinction" (HFRI & GSRT), 2018–2021
+- **Postdoctoral fellow**, "Greek biodiversity under siege: safeguarding the future" (SSF), 2020–2022
+- **Best Paper Award 2022**, *Diversity* (MDPI), for [climate-change impacts on the single-island endemics of Crete](https://doi.org/10.3390/d12070270)
+- **Editorial Board member**, *Environments* (MDPI)
+- **Guest Editor**, special issues of [*Sustainability*](https://www.mdpi.com/journal/sustainability/special_issues/PDCM), [*Land*](https://www.mdpi.com/journal/land/special_issues/land_plant) and [*Plants*](https://www.mdpi.com/journal/plants/special_issues/Taxon_Plant_Conserv_II)
+- **Board member**, [Hellenic Botanical Society](https://www.hbs.gr/about), 2019–2022 (substitute member 2022–2025)
+- **Assistant Curator**, Botanical Museum, University of Patras
 
-2. He enjoys working with [Prof. Trigas](https://scholar.google.gr/citations?user=L5-ME_cAAAAJ&hl=en) from the [Department of Crop Science](http://efp.aua.gr/en) in the Agricultural University of Athens
+### Collaborators
 
-3. He also enjoys working with [Prof. Halley](https://www.john-halley.com/) and his [EcoLab](https://twitter.com/EcoLab_BET) team
-
-4. Kostas has worked alongside [Prof. Petanidou](https://geography.aegean.gr/ppl/index_en.php?content=0&bio=tpet) and the [Biogeography & Ecology Lab](https://bioecolab-aegean.blogspot.com/2013/11/theodora-petanidou.html) in the University of the Aegean
-
-5. He has also worked with [Prof. Kostas A. Triantis](https://scholar.google.gr/citations?user=jTzQHXwAAAAJ&hl=en&oi=ao) and [Prof. Aristeidis Parmakelis](https://scholar.google.gr/citations?user=eaNpqN8AAAAJ&hl=en&oi=ao) from the [UAMECO lab](https://sites.google.com/site/uameco/home) at the Department of Ecology and Systematics, Faculty of Biology in the National and Kapodistrian University of Athens  
-
-6. Recently, he started collaborating with [Prof. Kati](https://bc.lab.uoi.gr/en/who-we-are/vassiliki-kati/) and the [Biodiversity Conservation Lab](https://bc.lab.uoi.gr/en/)
-{style="text-align: justify;"}
+- [Prof. Panayotis Dimopoulos](https://scholar.google.gr/citations?user=1WMOcPMAAAAJ&hl=en) and [Prof. Maria Panitsa](https://scholar.google.gr/citations?user=JLeOBm0AAAAJ&hl=en), [Botany Lab](http://botanylab.upatras.gr/), University of Patras
+- [Prof. Panayiotis Trigas](https://scholar.google.gr/citations?user=L5-ME_cAAAAJ&hl=en), [Department of Crop Science](http://efp.aua.gr/en), Agricultural University of Athens
+- [Prof. John Halley](https://www.john-halley.com/), [EcoLab](https://twitter.com/EcoLab_BET), University of Ioannina
+- [Prof. Vassiliki Kati](https://bc.lab.uoi.gr/en/who-we-are/vassiliki-kati/), [Biodiversity Conservation Lab](https://bc.lab.uoi.gr/en/), University of Ioannina
+- [Prof. Theodora Petanidou](https://geography.aegean.gr/ppl/index_en.php?content=0&bio=tpet), [Biogeography & Ecology Lab](https://bioecolab-aegean.blogspot.com/2013/11/theodora-petanidou.html), University of the Aegean
+- [Prof. Kostas A. Triantis](https://scholar.google.gr/citations?user=jTzQHXwAAAAJ&hl=en) and [Prof. Aristeidis Parmakelis](https://scholar.google.gr/citations?user=eaNpqN8AAAAJ&hl=en), [UAMECO lab](https://sites.google.com/site/uameco/home), National and Kapodistrian University of Athens

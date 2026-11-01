@@ -1,0 +1,19 @@
+{{/* Custom block "landing_hero": full-screen opening photo with the name over it.
+     The photo stays pinned while the rest of the page scrolls up over it.
+     Image: assets/media/hero-landscape.jpg (set `image:` in the block to change it). */}}
+{{ $block := .wcBlock }}
+{{ $src := resources.Get (path.Join "media" ($block.content.image | default "hero-landscape.jpg")) }}
+<div class="kk-hero">
+  {{ with $src }}
+    {{ $w := (.Resize "1920x q82 webp") }}
+    {{ $m := (.Resize "1200x q80 webp") }}
+    <img class="kk-hero-img" src="{{ $w.RelPermalink }}" srcset="{{ $m.RelPermalink }} 1200w, {{ $w.RelPermalink }} 1920w"
+         sizes="100vw" width="{{ $w.Width }}" height="{{ $w.Height }}" alt="{{ $block.content.alt | default "Mountain landscape" }}" fetchpriority="high">
+  {{ end }}
+  <div class="kk-hero-shade"></div>
+  <div class="kk-hero-text">
+    <h1>{{ $block.content.title | default site.Title }}</h1>
+    {{ with $block.content.text }}<p>{{ . | markdownify }}</p>{{ end }}
+    <a class="kk-hero-down" href="#about" aria-label="Scroll to biography"><span></span></a>
+  </div>
+</div>
