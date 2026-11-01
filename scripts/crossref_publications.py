@@ -35,22 +35,30 @@ OWN_FAMILY = "Kougioumoutzis"
 UA = "kkougiou.github.io publication updater (+https://kkougiou.github.io)"
 API = "https://api.crossref.org/works"
 SELECT = ("DOI,title,author,container-title,short-container-title,volume,issue,"
-          "page,article-number,issued,type,subtype,publisher,relation")
+          "page,article-number,issued,type,publisher")
 
 
 # ---------------------------------------------------------------- HTTP
 
 def http_get(url, accept="application/json", tries=4):
+    import urllib.error
     for i in range(tries):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": accept})
             with urllib.request.urlopen(req, timeout=60) as r:
                 return r.read().decode("utf-8")
+        except urllib.error.HTTPError as e:
+            body = e.read().decode("utf-8", "replace")[:300]
+            if e.code not in (429, 500, 502, 503, 504) or i == tries - 1:
+                raise RuntimeError(f"HTTP {e.code} for {url}: {body}") from None
+            wait = 10 * (i + 1) if e.code == 429 else 3 * (i + 1)
+            print(f"  HTTP {e.code}, retrying in {wait}s", file=sys.stderr)
+            time.sleep(wait)
         except Exception as e:  # noqa: BLE001
             if i == tries - 1:
                 raise
             print(f"  retry {i + 1} after error: {e}", file=sys.stderr)
-            time.sleep(2 * (i + 1))
+            time.sleep(3 * (i + 1))
 
 
 def crossref_query(params):
@@ -104,9 +112,6 @@ def author_names(work):
     names = []
     for a in work.get("author", []):
         given, family = a.get("given", ""), a.get("family", "")
-        if family == OWN_FAMILY:
-            names.append("admin")
-            continue
         initials = "".join(p[0] for p in re.split(r"[\s.\-]+", given) if p)
         names.append(f"{initials} {family}".strip() if family else a.get("name", ""))
     return names
@@ -122,7 +127,8 @@ PUB_TYPE = {  # Hugo Blox publication_types
 
 
 def to_front_matter(work, draft=False):
-    title = clean_title((work.get("title") or [""])[0])
+    title_md = clean_title((work.get("title") or [""])[0])
+    title = title_md.replace("*", "")
     journal = (work.get("container-title") or [""])[0]
     vol, iss = work.get("volume", ""), work.get("issue", "")
     pages = work.get("page") or work.get("article-number", "")
@@ -135,6 +141,7 @@ def to_front_matter(work, draft=False):
         venue += f", {pages}"
     fm = {
         "title": title,
+        **({"title_md": title_md} if title_md != title else {}),
         "authors": author_names(work),
         "date": f"{year_of(work)}-01-01",
         "publication_types": [PUB_TYPE.get(work.get("type"), "article")],
@@ -152,6 +159,8 @@ def write_bundle(work, draft=False):
     import yaml  # only needed when writing
     fm = to_front_matter(work, draft)
     folder = PUB_DIR / slugify(fm["title"])
+    if (folder / "index.md").exists() and not draft:
+        print(f"  exists already: {folder.relative_to(ROOT)} (overwriting)")
     folder.mkdir(parents=True, exist_ok=True)
     with open(folder / "index.md", "w", encoding="utf-8") as f:
         f.write("---\n")
@@ -241,7 +250,7 @@ def cmd_enrich(args):
         out["matches"][folder] = {"site_title": title, "candidates": cands[:3]}
         best = cands[0] if cands else None
         print(f"{best['score'] if best else 0:.3f} {folder[:60]}")
-        time.sleep(0.3)
+        time.sleep(1.2)
     out["own_works"] = own_works()
     bibs = {}
     for m in out["matches"].values():
