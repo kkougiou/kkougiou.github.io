@@ -14,4 +14,5 @@ publication: '*Forests*, 11(6), 620'
 doi: 10.3390/f11060620
 featured: false
 abstract: ''
+citations: 24
 ---

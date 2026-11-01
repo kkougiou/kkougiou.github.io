@@ -11,4 +11,5 @@ publication: '*Plants*, 13(8), 1109'
 doi: 10.3390/plants13081109
 featured: false
 abstract: ''
+citations: 9
 ---

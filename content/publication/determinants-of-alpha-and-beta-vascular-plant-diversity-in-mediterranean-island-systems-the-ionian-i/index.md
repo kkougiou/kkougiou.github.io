@@ -13,4 +13,5 @@ publication: '*Nordic Journal of Botany*, 37(1), e02156'
 doi: 10.1111/njb.02156
 featured: false
 abstract: ''
+citations: 28
 ---

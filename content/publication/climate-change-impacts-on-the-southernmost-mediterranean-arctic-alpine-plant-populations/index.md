@@ -13,4 +13,5 @@ publication: '*Sustainability*, 13(24), 13778'
 doi: 10.3390/su132413778
 featured: false
 abstract: ''
+citations: 19
 ---

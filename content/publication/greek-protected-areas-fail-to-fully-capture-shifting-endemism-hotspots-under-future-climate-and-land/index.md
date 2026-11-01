@@ -14,4 +14,5 @@ publication: '*Biological Conservation*, 309, 111268'
 doi: 10.1016/j.biocon.2025.111268
 featured: false
 abstract: ''
+citations: 3
 ---

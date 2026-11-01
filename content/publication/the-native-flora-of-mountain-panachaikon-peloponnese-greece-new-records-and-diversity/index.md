@@ -14,4 +14,5 @@ publication: '*Journal of Biological Research-Thessaloniki*, 21(1), 9'
 doi: 10.1186/2241-5793-21-9
 featured: false
 abstract: ''
+citations: 10
 ---

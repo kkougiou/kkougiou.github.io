@@ -12,4 +12,5 @@ publication: '*Edinburgh Journal of Botany*, 69(1), 53-81'
 doi: 10.1017/s0960428611000394
 featured: false
 abstract: ''
+citations: 7
 ---

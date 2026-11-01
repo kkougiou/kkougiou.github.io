@@ -15,4 +15,5 @@ publication: '*Botanica Serbica*, 45(2), 321-331'
 doi: 10.2298/botserb2102321t
 featured: false
 abstract: ''
+citations: 3
 ---

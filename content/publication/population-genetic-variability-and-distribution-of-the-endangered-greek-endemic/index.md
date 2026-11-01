@@ -16,4 +16,5 @@ publication: '*AoB PLANTS*, 12(2), plaa007'
 doi: 10.1093/aobpla/plaa007
 featured: false
 abstract: ''
+citations: 26
 ---

@@ -12,4 +12,5 @@ publication: '*Journal of Insect Conservation*, 17(4), 681-697'
 doi: 10.1007/s10841-013-9553-0
 featured: false
 abstract: ''
+citations: 32
 ---

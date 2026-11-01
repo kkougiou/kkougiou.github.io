@@ -8,8 +8,9 @@ authors:
 date: '2016-01-01'
 publication_types:
 - article-journal
-publication: "*Plant Biosystems*"
+publication: '*Plant Biosystems*'
 doi: 10.1080/11263504.2015.1103797
 featured: false
 abstract: ''
+citations: 3
 ---

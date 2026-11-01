@@ -17,4 +17,5 @@ publication: '*Plants*, 11(24), 3548'
 doi: 10.3390/plants11243548
 featured: false
 abstract: ''
+citations: 15
 ---

@@ -14,4 +14,5 @@ publication: '*Science of The Total Environment*, 947, 174622'
 doi: 10.1016/j.scitotenv.2024.174622
 featured: false
 abstract: ''
+citations: 11
 ---

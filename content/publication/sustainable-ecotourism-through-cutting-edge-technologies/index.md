@@ -19,4 +19,5 @@ publication: '*Sustainability*, 14(2), 800'
 doi: 10.3390/su14020800
 featured: false
 abstract: ''
+citations: 33
 ---

@@ -16,4 +16,5 @@ publication: '*Ecologies*, 6(1), 5'
 doi: 10.3390/ecologies6010005
 featured: false
 abstract: ''
+citations: 8
 ---

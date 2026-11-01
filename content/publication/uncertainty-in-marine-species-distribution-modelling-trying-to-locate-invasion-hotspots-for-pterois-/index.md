@@ -15,4 +15,5 @@ publication: '*Journal of Marine Science and Engineering*, 10(6), 729'
 doi: 10.3390/jmse10060729
 featured: false
 abstract: ''
+citations: 8
 ---

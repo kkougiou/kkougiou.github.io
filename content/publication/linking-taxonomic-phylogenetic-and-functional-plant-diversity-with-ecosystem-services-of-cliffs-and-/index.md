@@ -15,4 +15,5 @@ publication: '*Plants*, 10(5), 992'
 doi: 10.3390/plants10050992
 featured: false
 abstract: ''
+citations: 27
 ---

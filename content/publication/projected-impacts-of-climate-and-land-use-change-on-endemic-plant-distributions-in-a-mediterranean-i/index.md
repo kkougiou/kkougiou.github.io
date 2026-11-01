@@ -13,4 +13,5 @@ publication: '*Climate*, 13(5), 100'
 doi: 10.3390/cli13050100
 featured: false
 abstract: ''
+citations: 3
 ---

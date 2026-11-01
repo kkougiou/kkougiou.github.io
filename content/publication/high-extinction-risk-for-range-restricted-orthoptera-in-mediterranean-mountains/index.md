@@ -11,4 +11,5 @@ publication: '*Journal of Insect Conservation*, 30(6), 109'
 doi: 10.1007/s10841-026-00842-4
 featured: false
 abstract: ''
+citations: 0
 ---

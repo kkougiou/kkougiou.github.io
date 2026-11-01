@@ -20,4 +20,5 @@ publication: '*Palaeogeography, Palaeoclimatology, Palaeoecology*, 471, 108-119'
 doi: 10.1016/j.palaeo.2017.02.002
 featured: false
 abstract: ''
+citations: 53
 ---

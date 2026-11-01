@@ -11,4 +11,5 @@ publication: '*Land*, 12(12), 2109'
 doi: 10.3390/land12122109
 featured: false
 abstract: ''
+citations: 6
 ---

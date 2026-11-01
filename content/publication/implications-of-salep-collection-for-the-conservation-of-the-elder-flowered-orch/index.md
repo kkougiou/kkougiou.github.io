@@ -13,4 +13,5 @@ publication: '*Journal of Biological Research-Thessaloniki*, 26(1), 18'
 doi: 10.1186/s40709-019-0110-1
 featured: false
 abstract: ''
+citations: 19
 ---

@@ -12,4 +12,5 @@ publication: '*Ecological Indicators*, 103, 599-609'
 doi: 10.1016/j.ecolind.2019.04.024
 featured: false
 abstract: ''
+citations: 16
 ---
