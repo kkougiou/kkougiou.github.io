@@ -26,13 +26,15 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r requirements.txt
-      - name: Refresh citation counts (OpenAlex)
-        run: python scripts/crossref_publications.py counts
+      - name: Refresh citation counts and profile metrics (OpenAlex)
+        run: |
+          python scripts/crossref_publications.py counts
+          python scripts/crossref_publications.py metrics
       - name: Commit citation counts
         run: |
           git config user.name 'github-actions'
           git config user.email 'github-actions@users.noreply.github.com'
-          git add content/publication data/citations.yaml
+          git add content/publication data/citations.yaml data/metrics.yaml
           if ! git diff --cached --quiet; then
             git commit -m "Update citation counts from OpenAlex"
             git push

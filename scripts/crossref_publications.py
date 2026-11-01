@@ -18,6 +18,12 @@ Usage
   # Refresh citation counts (OpenAlex) for every paper with a DOI
   python scripts/crossref_publications.py counts
 
+  # Fill in missing abstracts (Crossref, else OpenAlex); never overwrites yours
+  python scripts/crossref_publications.py abstracts
+
+  # Refresh profile metrics (OpenAlex, by ORCID) into data/metrics.yaml
+  python scripts/crossref_publications.py metrics
+
   # Dump Crossref metadata for every title currently on the site (JSON)
   python scripts/crossref_publications.py enrich --out scripts/crossref_dump.json
 """
@@ -312,6 +318,91 @@ def cmd_counts(args):
     print(f"updated {changed} record(s); {total} citations in total")
 
 
+ORCID = "0000-0002-6938-3025"
+
+
+def _split_fm(path):
+    import yaml
+    text = path.read_text(encoding="utf-8")
+    _, head, body = text.split("---", 2)
+    return (yaml.safe_load(head) or {}), body
+
+
+def _write_fm(path, fm, body):
+    import yaml
+    path.write_text("---\n" + yaml.safe_dump(fm, allow_unicode=True, sort_keys=False, width=1000)
+                    + "---" + body, encoding="utf-8")
+
+
+def jats_to_text(s):
+    s = re.sub(r"<jats:title>.*?</jats:title>", "", s or "", flags=re.S)
+    s = re.sub(r"</jats:p>\s*<jats:p>", "\n\n", s)
+    s = re.sub(r"<jats:italic>(.*?)</jats:italic>", r"*\1*", s, flags=re.S)
+    s = re.sub(r"<[^>]+>", "", s)
+    s = html.unescape(s)
+    return re.sub(r"[ \t]+", " ", s).strip()
+
+
+def openalex_abstract(inv):
+    if not inv:
+        return ""
+    pos = {}
+    for word, idx in inv.items():
+        for i in idx:
+            pos[i] = word
+    return " ".join(pos[i] for i in sorted(pos)).strip()
+
+
+def cmd_abstracts(args):
+    """Fill `abstract` where it is empty; text you wrote yourself is never replaced."""
+    filled = 0
+    for f in sorted(PUB_DIR.glob("*/index.md")):
+        fm, body = _split_fm(f)
+        doi = str(fm.get("doi") or "").strip()
+        if not doi or str(fm.get("abstract") or "").strip():
+            continue
+        text = ""
+        try:
+            text = jats_to_text(crossref_work(doi).get("abstract", ""))
+        except Exception as e:  # noqa: BLE001
+            print(f"  crossref {doi}: {e}", file=sys.stderr)
+        if not text:
+            try:
+                w = json.loads(http_get("https://api.openalex.org/works/doi:" + urllib.parse.quote(doi)))
+                text = openalex_abstract(w.get("abstract_inverted_index"))
+            except Exception as e:  # noqa: BLE001
+                print(f"  openalex {doi}: {e}", file=sys.stderr)
+        text = re.sub(r"^(Abstract|ABSTRACT)[:.]?\s*", "", text)
+        if text:
+            fm["abstract"] = text
+            _write_fm(f, fm, body)
+            filled += 1
+        time.sleep(0.3)
+    print(f"filled {filled} abstract(s)")
+
+
+def cmd_metrics(args):
+    """Write profile metrics from OpenAlex (author found by ORCID) to data/metrics.yaml."""
+    import datetime
+    import yaml
+    a = json.loads(http_get(f"https://api.openalex.org/authors/orcid:{ORCID}"))
+    stats = a.get("summary_stats") or {}
+    years = sorted((c["year"], c["cited_by_count"]) for c in a.get("counts_by_year", []))
+    n_pubs = sum(1 for f in PUB_DIR.glob("*/index.md") if not front_matter(f).get("draft"))
+    data = {
+        "source": "OpenAlex",
+        "openalex_id": a.get("id", ""),
+        "updated": datetime.date.today().isoformat(),
+        "publications_on_site": n_pubs,
+        "citations": a.get("cited_by_count", 0),
+        "h_index": stats.get("h_index", 0),
+        "i10_index": stats.get("i10_index", 0),
+        "citations_by_year": [{"year": y, "citations": c} for y, c in years],
+    }
+    (ROOT / "data" / "metrics.yaml").write_text(yaml.safe_dump(data, sort_keys=False), encoding="utf-8")
+    print(yaml.safe_dump(data, sort_keys=False))
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -321,10 +412,12 @@ def main():
     d = sub.add_parser("discover", help="list Crossref works not yet on the site")
     d.add_argument("--write", action="store_true", help="create draft bundles for them")
     sub.add_parser("counts", help="refresh citation counts from OpenAlex")
+    sub.add_parser("abstracts", help="fill in missing abstracts")
+    sub.add_parser("metrics", help="refresh profile metrics (OpenAlex)")
     e = sub.add_parser("enrich", help="dump Crossref metadata for current titles")
     e.add_argument("--out", default="scripts/crossref_dump.json")
     args = p.parse_args()
-    {"add": cmd_add, "discover": cmd_discover, "enrich": cmd_enrich, "counts": cmd_counts}[args.cmd](args)
+    {"add": cmd_add, "discover": cmd_discover, "enrich": cmd_enrich, "counts": cmd_counts, "abstracts": cmd_abstracts, "metrics": cmd_metrics}[args.cmd](args)
 
 
 if __name__ == "__main__":
