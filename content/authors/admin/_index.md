@@ -15,7 +15,7 @@ last_name: Kougioumoutzis
 superuser: true
 
 # Role/position/tagline
-role: Plant taxonomist & biogeographer · Postdoctoral researcher
+role: Postdoctoral researcher in plant taxonomy and biogeography
 
 # Organizations/Affiliations to show in About widget
 organizations:
@@ -123,7 +123,6 @@ highlight_name: true
 Kostas Kougioumoutzis is a plant taxonomist and quantitative biogeographer working on the vascular flora of Greece and the wider Mediterranean. His research connects field botany and herbarium-based taxonomy with large-scale biodiversity analyses: island and mountain biogeography, species distribution modelling under climate and land-use change, and extinction-risk assessment, with a particular focus on narrow-range endemics.
 
 He has described or co-described three plant taxa new to science, rediscovered the Peloponnesian endemic *Stachys virgata*, and has authored more than 55 peer-reviewed articles. He is a member of the IUCN Species Survival Commission and a certified IUCN Regional Red List Assessor.
-{style="text-align: justify;"}
 
 ### Highlights
 

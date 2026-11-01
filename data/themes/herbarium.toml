@@ -1,0 +1,24 @@
+# Colour theme for kkougiou.github.io: the greens of Aegean phrygana and herbarium sheets.
+name = "Herbarium"
+
+[light]
+  primary = "#24604a"          # holm-oak green: links, buttons, accents
+  link_hover = "#173f30"
+  menu_primary = "#ffffff"
+  menu_text = "#3d4a44"
+  menu_text_active = "#24604a"
+  menu_title = "#173f30"
+  home_section_odd = "rgb(255, 255, 255)"
+  home_section_even = "#eef3ef" # pale sage
+
+[dark]
+  primary = "#8fcfae"
+  link = "#8fcfae"
+  link_hover = "#b8e3cb"
+  background = "#131a17"
+  home_section_odd = "#131a17"
+  home_section_even = "#18211d"
+  menu_primary = "#18211d"
+  menu_text = "#d6e2db"
+  menu_text_active = "#8fcfae"
+  menu_title = "#e8f1ec"

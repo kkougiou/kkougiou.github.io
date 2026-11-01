@@ -6,9 +6,9 @@
 # Appearance
 
 appearance:
-  theme_day: minimal
-  theme_night: minimal
-  font: minimal
+  theme_day: herbarium
+  theme_night: herbarium
+  font: herbarium
   font_size: L
 
 # SEO

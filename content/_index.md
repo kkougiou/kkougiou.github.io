@@ -40,8 +40,8 @@ sections:
           - publication
         featured_only: true
     design:
-      columns: '2'
-      view: citation
+      columns: '1'
+      view: card
   - block: collection
     id: publications
     content:

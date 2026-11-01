@@ -1,0 +1,29 @@
+{{/* Site override of the Hugo Blox v5.9.7 card view, used for "Selected publications".
+     Shows the paper's figure (card.* crop if present, else the featured image),
+     the title with italic taxon names, the journal and year, and the links. */}}
+{{ $item := .item }}
+{{ $link := $item.RelPermalink }}
+
+<article class="pub-card">
+  {{ $img := $item.Resources.GetMatch "card.*" | default (partial "blox-core/functions/get_featured_image.html" $item) }}
+  <a href="{{ $link }}" class="pub-card-figure" tabindex="-1" aria-hidden="true">
+    {{ with $img }}
+      {{ $image := (.Fill "800x600 Center").Process "webp" }}
+      <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="" loading="lazy">
+    {{ else }}
+      <span class="pub-card-noimage">{{ with $item.Params.publication }}{{ (index (split . ",") 0) | markdownify }}{{ end }}</span>
+    {{ end }}
+  </a>
+  <div class="pub-card-body">
+    <h3 class="pub-card-title">
+      <a href="{{ $link }}">{{ $item.Params.title_md | default $item.Title | markdownify }}</a>
+    </h3>
+    <p class="pub-card-meta">
+      {{ with $item.Params.publication }}{{ (index (split . ",") 0) | markdownify }}, {{ end }}{{ $item.Date.Format "2006" }}
+    </p>
+    <div class="pub-card-links">
+      {{ partial "page_links" (dict "page" $item "is_list" 1) }}
+      {{- with $item.Params.citations }}<span class="pub-cites" title="Citations (OpenAlex{{ with site.Data.citations.updated }}, updated {{ . }}{{ end }})">Cited by {{ . }}</span>{{ end -}}
+    </div>
+  </div>
+</article>

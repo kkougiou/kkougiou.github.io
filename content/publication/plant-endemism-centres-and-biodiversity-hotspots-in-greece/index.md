@@ -15,4 +15,8 @@ doi: 10.3390/biology10020072
 featured: true
 abstract: ''
 citations: 86
+image:
+  caption: Figure 3 of the article (© the authors, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/))
+  focal_point: Center
+  preview_only: false
 ---

@@ -1,0 +1,7 @@
+# Font set for kkougiou.github.io (fonts are self-hosted, see assets/scss/custom.scss)
+name = "Herbarium"
+google_fonts = ""
+heading_font = "Spectral"
+body_font = "Source Sans 3"
+nav_font = "Source Sans 3"
+mono_font = "Roboto Mono"
