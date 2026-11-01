@@ -21,6 +21,7 @@
   <p>{{ partial "page_links" (dict "page" $item "is_list" 1) }}
     {{- with $item.Params.citations }}<span class="pub-cites" title="Citations (OpenAlex{{ with site.Data.citations.updated }}, updated {{ . }}{{ end }})">Cited by {{ . }}</span>{{ end -}}
   </p>
+  {{ partial "abstract_toggle" $item }}
 
   {{/* MLA Style */}}
   {{ else }}

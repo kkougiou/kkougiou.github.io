@@ -15,6 +15,7 @@ sections:
     id: research
     content:
       title: Research
+      subtitle: From herbarium sheets to range-wide models, three connected lines of work.
       text: ''
       items:
         - name: Island & mountain biogeography
@@ -42,10 +43,17 @@ sections:
     design:
       columns: '1'
       view: card
+  - block: metrics
+    id: impact
+    content:
+      title: Impact
+    design:
+      columns: '1'
   - block: collection
     id: publications
     content:
       title: Recent publications
+      subtitle: The six most recent papers. All publications, with abstracts, are on the [publications page](publication/).
       count: 6
       filters:
         folders:

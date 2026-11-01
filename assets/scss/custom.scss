@@ -161,3 +161,55 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid $kk-green; outline-offs
 }
 .article-header .article-header-caption a { color: inherit !important; text-decoration: underline; }
 .dark .article-header .article-header-caption { color: #a9b8b0; }
+
+// Collapsible abstracts in lists and cards
+.pub-abstract { margin: .5rem 0 0; }
+.pub-abstract summary {
+  display: inline-flex; align-items: center; gap: .3rem; cursor: pointer;
+  font-size: .85rem; color: $kk-green; list-style: none;
+}
+.pub-abstract summary::-webkit-details-marker { display: none; }
+.pub-abstract summary::before {
+  content: ""; width: .45rem; height: .45rem; border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor; transform: rotate(-45deg); transition: transform .15s ease;
+}
+.pub-abstract[open] summary::before { transform: rotate(45deg); }
+.pub-abstract-text {
+  margin-top: .6rem; padding-left: .9rem; border-left: 2px solid $kk-rule;
+  font-size: .92rem; line-height: 1.6; color: #3d4a44; max-width: 46rem;
+}
+.pub-abstract-text p { margin-bottom: .6rem; }
+@media (prefers-reduced-motion: reduce) { .pub-abstract summary::before { transition: none; } }
+
+// Section subtitles carry the page from one part to the next
+.home-section .section-heading p, .featurette .section-heading p {
+  font-size: 1.1rem; color: #5b6862; max-width: 40rem; margin: .4rem auto 0;
+}
+.featurette .section-heading { text-align: center; margin-bottom: 2.25rem; }
+html { scroll-padding-top: 80px; }
+
+// Impact: one sentence and a citations-per-year chart
+.metrics-wrap { max-width: 860px; margin: 0 auto; }
+.metrics-lead { font-size: 1.15rem; text-align: center; margin-bottom: 1.75rem; }
+.metrics-lead strong { font-family: 'Spectral', serif; font-weight: 600; font-size: 1.35rem; color: $kk-green-deep; }
+.metrics-chart { margin: 0; }
+.metrics-chart svg { width: 100%; height: auto; display: block; }
+.metrics-chart .bar rect { fill: $kk-green; }
+.metrics-chart .bar.partial rect { fill: #9cc4b0; }
+.metrics-chart .axis { stroke: $kk-rule; stroke-width: 1; }
+.metrics-chart text { font-family: 'Source Sans 3', sans-serif; text-anchor: middle; }
+.metrics-chart .val { font-size: 13px; fill: #3d4a44; }
+.metrics-chart .yr { font-size: 12px; fill: #5b6862; }
+.metrics-chart figcaption { text-align: center; font-size: .85rem; color: #5b6862; margin-top: .5rem; }
+
+.dark {
+  .pub-abstract summary { color: #8fcfae; }
+  .pub-abstract-text { color: #c9d6cf; border-color: #2a3a33; }
+  .home-section .section-heading p, .featurette .section-heading p { color: #a9b8b0; }
+  .metrics-lead strong { color: #b8e3cb; }
+  .metrics-chart .bar rect { fill: #8fcfae; }
+  .metrics-chart .bar.partial rect { fill: #4d7a66; }
+  .metrics-chart .val { fill: #d6e2db; }
+  .metrics-chart .yr, .metrics-chart figcaption { fill: #a9b8b0; color: #a9b8b0; }
+  .metrics-chart .axis { stroke: #2a3a33; }
+}
