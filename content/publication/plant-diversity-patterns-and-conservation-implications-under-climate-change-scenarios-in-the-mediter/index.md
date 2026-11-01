@@ -16,7 +16,7 @@ featured: true
 abstract: ''
 citations: 66
 image:
-  caption: Figure 5 of the article (© the authors, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/))
+  caption: Figure 2 of the article (© the authors, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/))
   focal_point: Center
   preview_only: false
 ---

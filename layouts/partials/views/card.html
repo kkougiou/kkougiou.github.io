@@ -8,7 +8,7 @@
   {{ $img := $item.Resources.GetMatch "card.*" | default (partial "blox-core/functions/get_featured_image.html" $item) }}
   <a href="{{ $link }}" class="pub-card-figure" tabindex="-1" aria-hidden="true">
     {{ with $img }}
-      {{ $image := (.Fill "800x600 Center").Process "webp" }}
+      {{ $image := (.Fill "840x720 Center").Process "webp" }}
       <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="" loading="lazy">
     {{ else }}
       <span class="pub-card-noimage">{{ with $item.Params.publication }}{{ (index (split . ",") 0) | markdownify }}{{ end }}</span>
