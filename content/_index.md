@@ -5,6 +5,16 @@ date: 2022-10-24
 type: landing
 
 sections:
+  - block: landing_hero
+    id: hero
+    content:
+      title: Konstantinos Kougioumoutzis
+      text: Plant taxonomy, biogeography and conservation of the Greek and Mediterranean flora
+      image: hero-landscape.jpg
+      alt: Rocky mountain valley with a conifer in the foreground
+    design:
+      spacing:
+        padding: ['0', '0', '0', '0']
   - block: about.biography
     id: about
     content:

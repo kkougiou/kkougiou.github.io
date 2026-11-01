@@ -1,0 +1,21 @@
+{{/* Gentle reveal: each home-page section fades and rises into place the first time
+     it scrolls into view. Skipped entirely when the visitor prefers reduced motion. */}}
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var targets = document.querySelectorAll('.home-section:not(#hero) > .container, .home-section:not(#hero) .home-section-content');
+  if (!targets.length) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('kk-in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  targets.forEach(function (t) {
+    var r = t.getBoundingClientRect();
+    if (r.top < window.innerHeight * 0.9) return;  // already on screen: leave as is
+    t.classList.add('kk-reveal');
+    io.observe(t);
+  });
+})();
+</script>
