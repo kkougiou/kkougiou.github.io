@@ -263,3 +263,90 @@ footer.site-footer, .page-footer { position: relative; z-index: 1; background: i
   .kk-hero-text { padding-bottom: 12vh; }
   .kk-hero-down { right: auto; left: 6vw; bottom: 4vh; }
 }
+
+// ---------------------------------------------------------------------------
+// Engraved footer (layouts/partials/components/footers/engraving.html)
+// ---------------------------------------------------------------------------
+$kk-paper: #f2f5f1;
+$kk-ink: #173f30;
+
+.page-footer { background: $kk-paper; border-top: 1px solid $kk-rule; }
+.page-footer > .container { max-width: none; padding: 0; }
+footer.site-footer {
+  display: flex; flex-direction: column; padding: 3.75rem 0 0; margin: 0; background: transparent;
+  font-family: 'Source Sans 3', sans-serif; color: #3f4d46; text-align: left;
+}
+.kk-foot-band, footer.site-footer > p {
+  width: 100%; max-width: 1140px; margin-left: auto; margin-right: auto; padding: 0 1.5rem;
+}
+.kk-foot-band {
+  position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2.5rem 4rem;
+  margin-bottom: 1.25rem;
+}
+footer.site-footer .kk-foot-band, footer.site-footer .kk-foot-band p { text-align: left; }
+.kk-foot-name { font-family: 'Spectral', Georgia, serif; font-size: 1.6rem; line-height: 1.2; margin: 0 0 .5rem; }
+.kk-foot-name a { color: $kk-ink; }
+.kk-foot-line { max-width: 34ch; margin: 0 0 .6rem; font-size: 1rem; line-height: 1.5; }
+.kk-foot-org { margin: 0; font-size: .9rem; }
+.kk-foot-org a, footer.site-footer > p a { color: inherit; text-decoration: underline; text-decoration-color: rgba($kk-ink, .3); text-underline-offset: 3px; }
+.kk-foot-cols { display: flex; gap: 3.5rem; }
+.kk-foot-head { font-family: 'Spectral', Georgia, serif; font-style: italic; color: $kk-green; margin: 0 0 .5rem; font-size: 1rem; }
+.kk-foot-cols ul { list-style: none; margin: 0; padding: 0; }
+.kk-foot-cols li { margin: 0 0 .3rem; font-size: .95rem; }
+.kk-foot-cols a { color: #2c3a33; }
+.kk-foot-cols a:hover, .kk-foot-name a:hover { color: $kk-green; text-decoration: underline; text-underline-offset: 3px; }
+footer.site-footer > p { position: relative; z-index: 2; text-align: left; font-size: .8rem; color: #5b6862; margin-top: 0; margin-bottom: .2rem; }
+footer.site-footer > p:empty { display: none; }
+
+.kk-foot-plate {
+  order: 5; position: relative; width: 100%; max-width: 1600px; margin: .75rem auto 0;
+  container-type: inline-size; line-height: 0;
+}
+.kk-foot-plate img { display: block; width: 100%; height: clamp(250px, 44vw, 660px); object-fit: cover; object-position: 50% 0; }
+@media (min-width: 1600px) {
+  .kk-foot-plate { -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+                   mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent); }
+}
+
+// Birds crossing the sky
+.kk-flock { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.kk-bird {
+  position: absolute; left: 0; top: var(--top); width: var(--size); color: $kk-ink;
+  transform: translateX(-10cqw);
+  animation: kk-fly var(--dur) linear var(--delay) infinite;
+}
+.kk-bird svg { display: block; width: 100%; height: auto; fill: currentColor; overflow: visible; }
+.kk-wing { transform-box: view-box; transform-origin: 20px 9px; animation: kk-flap var(--flap) ease-in-out infinite alternate; }
+@keyframes kk-fly {
+  0%   { transform: translate(-10cqw, 0); }
+  30%  { transform: translate(25cqw, -1.4cqw); }
+  60%  { transform: translate(60cqw, .6cqw); }
+  100% { transform: translate(110cqw, -.8cqw); }
+}
+@keyframes kk-flap { from { transform: scaleY(1); } to { transform: scaleY(-.45); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .kk-bird, .kk-wing { animation: none; }
+  .kk-bird { transform: translateX(var(--x, 50cqw)); }
+}
+
+@media (max-width: 767.98px) {
+  footer.site-footer { padding-top: 3rem; }
+  .kk-foot-band { grid-template-columns: 1fr; }
+  .kk-foot-cols { gap: 2.5rem; }
+  .kk-foot-plate { margin-top: 1rem; }
+  .kk-bird { width: calc(var(--size) * .75); }
+}
+
+.dark {
+  .page-footer { background: #111815; border-top-color: #2a3a33; }
+  footer.site-footer { color: #b9c7c0; }
+  .kk-foot-name a, .kk-foot-cols a { color: #dfe9e3; }
+  .kk-foot-head { color: #8fcfae; }
+  footer.site-footer > p { color: #93a39b; }
+  .kk-foot-plate img { filter: invert(1) hue-rotate(180deg) brightness(.82); }
+  .kk-bird { color: #cfe0d6; }
+}
+footer.site-footer > p.footer-license-icons { display: block; text-align: left; margin: .15rem auto .35rem; }
+footer.site-footer > p.footer-license-icons i { font-size: 1.1rem; margin-right: .15rem; }
+footer.site-footer > p.footer-license-icons a { text-decoration: none; }
