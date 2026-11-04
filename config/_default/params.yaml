@@ -44,6 +44,7 @@ header:
 # Site footer
 
 footer:
+  block: engraving
   copyright:
     notice: '© {year} Konstantinos Kougioumoutzis. This work is licensed under {license}'
     license:
